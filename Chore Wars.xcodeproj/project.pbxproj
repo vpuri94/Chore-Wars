@@ -14,6 +14,7 @@
 		5BAD329A271F3D4700E7D90A /* Chore_WarsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAD3299271F3D4700E7D90A /* Chore_WarsTests.swift */; };
 		5BAD32A4271F3D4700E7D90A /* Chore_WarsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAD32A3271F3D4700E7D90A /* Chore_WarsUITests.swift */; };
 		5BAD32A6271F3D4700E7D90A /* Chore_WarsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAD32A5271F3D4700E7D90A /* Chore_WarsUITestsLaunchTests.swift */; };
+		5BAD32B3271F48E100E7D90A /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAD32B2271F48E100E7D90A /* File.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		5BAD329F271F3D4700E7D90A /* Chore WarsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Chore WarsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BAD32A3271F3D4700E7D90A /* Chore_WarsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chore_WarsUITests.swift; sourceTree = "<group>"; };
 		5BAD32A5271F3D4700E7D90A /* Chore_WarsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chore_WarsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		5BAD32B2271F48E100E7D90A /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				5BAD328A271F3D4600E7D90A /* ContentView.swift */,
 				5BAD328C271F3D4700E7D90A /* Assets.xcassets */,
 				5BAD328E271F3D4700E7D90A /* Preview Content */,
+				5BAD32B2271F48E100E7D90A /* File.swift */,
 			);
 			path = "Chore Wars";
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BAD328B271F3D4600E7D90A /* ContentView.swift in Sources */,
+				5BAD32B3271F48E100E7D90A /* File.swift in Sources */,
 				5BAD3289271F3D4600E7D90A /* Chore_WarsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
