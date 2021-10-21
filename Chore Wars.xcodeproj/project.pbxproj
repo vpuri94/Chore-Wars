@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B4DC4D0272111B000E15686 /* View in Resources */ = {isa = PBXBuildFile; fileRef = 5B4DC4CF272111B000E15686 /* View */; };
 		5BAD3289271F3D4600E7D90A /* Chore_WarsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAD3288271F3D4600E7D90A /* Chore_WarsApp.swift */; };
 		5BAD328B271F3D4600E7D90A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAD328A271F3D4600E7D90A /* ContentView.swift */; };
 		5BAD328D271F3D4700E7D90A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BAD328C271F3D4700E7D90A /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B4DC4CF272111B000E15686 /* View */ = {isa = PBXFileReference; lastKnownFileType = folder; path = View; sourceTree = "<group>"; };
 		5BAD3285271F3D4600E7D90A /* Chore Wars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chore Wars.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BAD3288271F3D4600E7D90A /* Chore_WarsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chore_WarsApp.swift; sourceTree = "<group>"; };
 		5BAD328A271F3D4600E7D90A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 		5BAD3287271F3D4600E7D90A /* Chore Wars */ = {
 			isa = PBXGroup;
 			children = (
+				5B4DC4CF272111B000E15686 /* View */,
 				5BAD3288271F3D4600E7D90A /* Chore_WarsApp.swift */,
 				5BAD328A271F3D4600E7D90A /* ContentView.swift */,
 				5BAD328C271F3D4700E7D90A /* Assets.xcassets */,
@@ -236,6 +239,7 @@
 			files = (
 				5BAD3290271F3D4700E7D90A /* Preview Assets.xcassets in Resources */,
 				5BAD328D271F3D4700E7D90A /* Assets.xcassets in Resources */,
+				5B4DC4D0272111B000E15686 /* View in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
