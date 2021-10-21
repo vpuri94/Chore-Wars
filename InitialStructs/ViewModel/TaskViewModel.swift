@@ -22,13 +22,7 @@ class TaskViewModel: ObservableObject{
                 let name = data["name"] as? String ?? ""
                 let points = data["points"] as? Int ?? 0
                 let dueDate = data["dueDate"] as? Date ?? NSDate.now
-//                let claimed = data["claimed"]
-//                let completed = data["completed"]
-//                let review = data["review"]
-//                let reviewed = data["reviewed"]
                 let task  = Task(name: name, points: points, dueDate: dueDate )
-//                print(task)
-                print(task.getDate())
                 return task
             }
         }

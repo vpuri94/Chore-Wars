@@ -33,7 +33,7 @@ struct Task: Identifiable{
             "completed": self.completed,
             "reviewed": self.reviewed,
             "review": self.review,
-            "claimed": self.claimed ?? nil
+            "claimed": self.claimed as Any
             ]
         return dict
     }
@@ -44,11 +44,11 @@ struct Task: Identifiable{
         dateFormatter.dateFormat = "dd/MM/yyyy"
         print(dateFormatter.string(from: dueDate))
     }
-    func setUser(user:User) {
+    mutating func setUser(user:User) {
         self.claimed = user
     }
     func getUserName() -> String{
-        return claimed?.name ?? ""
+        return claimed?.displayName ?? ""
     }
     
     func isClaimed() -> Bool{
