@@ -22,6 +22,7 @@
 		F6663C8F27205F56003427B9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6663C8E27205F56003427B9 /* User.swift */; };
 		F6663C92272060A0003427B9 /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6663C91272060A0003427B9 /* TaskView.swift */; };
 		F6663C952720CFB1003427B9 /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6663C942720CFB1003427B9 /* TaskViewModel.swift */; };
+		F6663C9727212EC2003427B9 /* AddNewChoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6663C9627212EC2003427B9 /* AddNewChoreView.swift */; };
 		FCA5D46AFBAF3A73AD667596 /* Pods_InitialStructsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54FD79BA087A6CB816BE3ECE /* Pods_InitialStructsTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		F6663C8E27205F56003427B9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F6663C91272060A0003427B9 /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 		F6663C942720CFB1003427B9 /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
+		F6663C9627212EC2003427B9 /* AddNewChoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewChoreView.swift; sourceTree = "<group>"; };
 		F92CF8A92A9D22546F336F22 /* Pods_InitialStructs_InitialStructsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InitialStructs_InitialStructsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -203,6 +205,7 @@
 			children = (
 				F6663C5D271F3711003427B9 /* ContentView.swift */,
 				F6663C91272060A0003427B9 /* TaskView.swift */,
+				F6663C9627212EC2003427B9 /* AddNewChoreView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6663C9727212EC2003427B9 /* AddNewChoreView.swift in Sources */,
 				F6663C8B271F378F003427B9 /* Task.swift in Sources */,
 				F6663C952720CFB1003427B9 /* TaskViewModel.swift in Sources */,
 				F6663C5A271F3711003427B9 /* AppDelegate.swift in Sources */,

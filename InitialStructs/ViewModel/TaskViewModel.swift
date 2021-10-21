@@ -22,10 +22,10 @@ class TaskViewModel: ObservableObject{
                 let name = data["name"] as? String ?? ""
                 let points = data["points"] as? Int ?? 0
                 let dueDate = data["dueDate"] as? Date ?? NSDate.now
-                let claimed = data["claimed"]
-                let completed = data["completed"]
-                let review = data["review"]
-                let reviewed = data["reviewed"]
+//                let claimed = data["claimed"]
+//                let completed = data["completed"]
+//                let review = data["review"]
+//                let reviewed = data["reviewed"]
                 let task  = Task(name: name, points: points, dueDate: dueDate )
 //                print(task)
                 print(task.getDate())
@@ -33,5 +33,20 @@ class TaskViewModel: ObservableObject{
             }
         }
     }
+    
+    func addData(name:String, points: String, dueDate: Date){
+        let points = Int(points) ?? 0
+        let ref: DocumentReference? = nil
+        let task = Task(name: name, points: points, dueDate: dueDate)
+        db.collection("Task").addDocument(data: task.taskDict())
+        {
+            err in
+            if let err = err {
+                print("Error adding document: \(err)")
+            } else {
+                print("Document added with ID: \(ref!.documentID )")
+            }
+    }
+}
 }
 
