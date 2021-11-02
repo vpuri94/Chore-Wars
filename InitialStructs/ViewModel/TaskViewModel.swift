@@ -30,17 +30,17 @@ class TaskViewModel: ObservableObject{
     
     func addData(name:String, points: String, dueDate: Date){
         let points = Int(points) ?? 0
-        let ref: DocumentReference? = nil
+//        let ref: DocumentReference? = nil
         let task = Task(name: name, points: points, dueDate: dueDate)
         db.collection("Task").addDocument(data: task.taskDict())
-        {
-            err in
-            if let err = err {
-                print("Error adding document: \(err)")
-            } else {
-                print("Document added with ID: \(ref!.documentID )")
-            }
-    }
+//        {
+//            err in
+//            if let err = err {
+//                print("Error adding document: \(err)")
+//            } else {
+//                print("Document added with ID: \(ref!.documentID )")
+//            }
+//    }
 }
 }
 

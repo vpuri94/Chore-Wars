@@ -15,31 +15,32 @@ let testData = [ Task(name: "Cleaning Dishes", points: 50, dueDate: NSDate.now),
 
 struct TaskView: View {
     var test = testData
+    @State private var selection: String? = "A"
     @ObservedObject private var taskViewModel = TaskViewModel()
+//    @ObservedObject private var user = UserViewModel();
     var body: some View {
-        NavigationView {
-            VStack{
-                HStack{
+            NavigationView {
+//
+                VStack{
+                    HStack{
                     Text("Claimed").padding()
                     Text("Unclaimed").padding()
-                }
+                    }
             
-            VStack{
-                List(taskViewModel.tasks, id: \.id){ task in
-                    Text(task.name).padding()
-                    Text(String(task.points)).frame( alignment: .trailing)
-                    
+                VStack{
+                    List(taskViewModel.tasks,id: \.id){ task in
+                      TaskRow(task: task)
+                    }
                 }
-            }.navigationBarTitle("Tasks")
-            .onAppear(){
-                self.taskViewModel.fetchData()
-                var testingFilter = self.taskViewModel.tasks.filter{$0.isNotClaimed()}
-                print("here")
-                print(testingFilter)
-                print("here")
-            }
-        }
-        
+                 }
+                .navigationBarTitle("Tasks")
+                 .onAppear(){
+                        self.taskViewModel.fetchData()
+        //                var testingFilter = self.taskViewModel.tasks.filter{$0.isNotClaimed()}
+                        print("here")
+        //                print(testingFilter)
+                        print("here")
+                }
         }
     }
 }
