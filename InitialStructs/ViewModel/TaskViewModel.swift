@@ -11,6 +11,8 @@ import FirebaseFirestore
 class TaskViewModel: ObservableObject{
     @Published var tasks = [Task]()
     private var db = Firestore.firestore()
+    
+    
     func fetchData(){
         db.collection("Task").addSnapshotListener{ (querySnapshot, error) in
             
@@ -19,10 +21,12 @@ class TaskViewModel: ObservableObject{
             }
             self.tasks = documents.map { (queryDocumentSnapshot) in
                 let data = queryDocumentSnapshot.data()
+                let id  = data["id"] as? String ?? ""
                 let name = data["name"] as? String ?? ""
                 let points = data["points"] as? Int ?? 0
                 let dueDate = data["dueDate"] as? Date ?? NSDate.now
-                let task  = Task(name: name, points: points, dueDate: dueDate )
+                let claimed = data["claimed"] as? String ?? ""
+                let task  = Task(id: id, name: name, points: points, dueDate: dueDate, claimed: claimed )
                 return task
             }
         }
@@ -30,17 +34,17 @@ class TaskViewModel: ObservableObject{
     
     func addData(name:String, points: String, dueDate: Date){
         let points = Int(points) ?? 0
-//        let ref: DocumentReference? = nil
-        let task = Task(name: name, points: points, dueDate: dueDate)
-        db.collection("Task").addDocument(data: task.taskDict())
-//        {
-//            err in
-//            if let err = err {
-//                print("Error adding document: \(err)")
-//            } else {
-//                print("Document added with ID: \(ref!.documentID )")
-//            }
-//    }
-}
+        var task = Task(name: name, points: points, dueDate: dueDate)
+        let doc = db.collection("Task").addDocument(data: task.taskDict())
+        let docID: String = doc.documentID
+        task.id = docID
+        db.collection("Task").document(doc.documentID).updateData(["id": docID])
+    }
+    
+    func updateData(id: String, user: User){
+        let id = db.collection("Task").document(id).documentID
+        db.collection("Task").document(id).updateData(["claimed": user.id])
+
+    }
 }
 

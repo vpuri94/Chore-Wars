@@ -18,17 +18,20 @@ struct Task: Identifiable{
     let completed: Bool = false;
     let reviewed: Bool = false;
     let review: Int = 0;
-    var claimed: User? = nil;
+    var claimed: String? = ""; // user ID later on
     var team: Team? = nil;
     
-    init(name: String,points: Int,dueDate: Date) {
+    init(id: String = "", name: String,points: Int,dueDate: Date, claimed: String = "") {
+        self.id = id
         self.name = name
         self.points  = points
         self.dueDate = dueDate
+        self.claimed = claimed
     }
     
     func taskDict() ->[String: Any]{
         let dict: [String:Any] = [
+//            "id": id,
             "name": self.name,
             "points": self.points,
             "dueDate": self.dueDate,
@@ -48,22 +51,16 @@ struct Task: Identifiable{
         print(dateFormatter.string(from: dueDate))
         return (dateFormatter.string(from: dueDate))
     }
-    mutating func setUser(user:User) {
-        self.claimed = user
-    }
-    func getUserName() -> String{
-        return claimed?.displayName ?? ""
-    }
-
+    
     
     func isClaimed() -> Bool{
-        if claimed != nil{
+        if claimed != ""{
             return true
         }
         return false
     }
     func isNotClaimed() -> Bool{
-        if claimed == nil{
+        if claimed == ""{
             return true
         }
         return false

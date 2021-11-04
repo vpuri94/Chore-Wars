@@ -9,7 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        TaskView()
+        TabView{
+            TaskView()
+                .tabItem{
+                Label("Tasks",systemImage: "paintbrush")
+                }
+                AddNewChoreView().tabItem{
+                    Label("Add New Chore", systemImage: "plus")
+                }
+        }
     }
 }
 

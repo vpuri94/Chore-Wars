@@ -10,6 +10,7 @@ import SwiftUI
 struct TaskRow: View{
     @State var task: Task
     let user = User(firstName: "Talha", lastName: "Subzwari" , displayName: "Copperbolt")
+    @ObservedObject private var taskViewModel = TaskViewModel()
     var body: some View{
         
         HStack{
@@ -17,7 +18,7 @@ struct TaskRow: View{
             Text(task.name).padding()
             Text(String(task.points)).padding()
 //            Text(String(task.getUserName()))
-            Image(systemName: isClaimed() ? "checkmark.square.fill" : "square")
+            Image(systemName: isClaimed() ? "checkmark" : "plus")
                         .foregroundColor(isClaimed() ? Color(UIColor.systemBlue) : Color.secondary)
                         .onTapGesture {
                             claimAChore()
@@ -29,7 +30,7 @@ struct TaskRow: View{
     
     // MARK: User to claim functions
     func isClaimed() -> Bool{
-        if task.claimed != nil{
+        if task.claimed != ""{
             return true
         }
         return false
@@ -37,7 +38,8 @@ struct TaskRow: View{
     
      func claimAChore(){
         if(task.isNotClaimed()){
-           task.claimed = user
+            task.claimed = user.id
+            taskViewModel.updateData(id: task.id,user: user)
         }
     }
     

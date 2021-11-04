@@ -210,8 +210,8 @@
 		F6663C9027206079003427B9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F6663C5D271F3711003427B9 /* ContentView.swift */,
 				F6663C91272060A0003427B9 /* TaskView.swift */,
+				F6663C5D271F3711003427B9 /* ContentView.swift */,
 				F6663C9627212EC2003427B9 /* AddNewChoreView.swift */,
 				F6FC0A0B2730C34A0046E3C8 /* TaskRow.swift */,
 			);
