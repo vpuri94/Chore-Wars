@@ -33,7 +33,8 @@ struct AddNewChoreView: View {
                      .frame(height: 1)
                      .padding(.horizontal, 30)
                      .background(Color.gray)
-                }.frame(width: width, height: 100, alignment: .topLeading)
+                }
+//                .frame(width: width, height: 100, alignment: .topLeading)
                 
                     
                 VStack{
@@ -43,6 +44,7 @@ struct AddNewChoreView: View {
                         .foregroundColor(.blue)
                         .frame(width: width-50, height: 10,alignment: .leading)
                 }
+                Divider()
                 VStack{
                     Text("Start")
                     DatePicker("", selection: $startDate, in: Date()..., displayedComponents: .date).frame(width: width-50, alignment: .center).padding()
@@ -50,29 +52,36 @@ struct AddNewChoreView: View {
                     DatePicker("", selection: $dueDate, in: Date()..., displayedComponents: .date).padding()
                     VStack{
                         ForEach(categories, id:\.self){ category in
-                            Button(category, action:{
+                            Button(action:{
                                 cat = category
-                            }
-                            ).onTapGesture {}
-                            .frame(width: width-50, height: 10, alignment: .center)
-                            .padding()
-                            .background(Color(red: 0, green: 0, blue: 100))
-                            .clipShape(Capsule())
-                            
+                            }, label: {
+                                Text(category)
+                                    .padding()
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(lineWidth: 2)
+                                    )
+                                }
+                            )
                         }
                     }
                 }
                 VStack{
-                    Button("Add Chore", action:{
+                    Button(action:{
                         self.taskViewModel.addData(name: name,points: points,dueDate: dueDate, category: cat)
-                    })
-                    .frame(width: width-50, height: 10, alignment: .center)
-                    .padding()
-                    .background(Color(red: 64, green: 143, blue: 176))
-                    .clipShape(Capsule())
+                    }, label:{
+                        Text("Add Chore")
+                            .padding()
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(lineWidth: 2)
+                                    .background(Color.blue)
+                            )
+                            .foregroundColor(Color.white)
+                            
+                        }
+                    ).padding()
                 }
-                
-//                .foregroundColor()
             }
             .padding()
             .navigationTitle("Add New Chore")

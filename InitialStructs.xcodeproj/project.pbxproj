@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9215294CD8F0C9A9D6429E10 /* Pods_InitialStructs_InitialStructsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F92CF8A92A9D22546F336F22 /* Pods_InitialStructs_InitialStructsUITests.framework */; };
 		F342791B7C8E6E347FE00116 /* Pods_InitialStructs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB6F44CF4F8C84A95F48D9F5 /* Pods_InitialStructs.framework */; };
+		F60E13832734F33600DAB780 /* TaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60E13822734F33600DAB780 /* TaskTests.swift */; };
 		F6663C5A271F3711003427B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6663C59271F3711003427B9 /* AppDelegate.swift */; };
 		F6663C5C271F3711003427B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6663C5B271F3711003427B9 /* SceneDelegate.swift */; };
 		F6663C5E271F3711003427B9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6663C5D271F3711003427B9 /* ContentView.swift */; };
@@ -55,6 +56,7 @@
 		D87A23C602D0DD8F37CFDA66 /* Pods-InitialStructsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InitialStructsTests.debug.xcconfig"; path = "Target Support Files/Pods-InitialStructsTests/Pods-InitialStructsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DB6F44CF4F8C84A95F48D9F5 /* Pods_InitialStructs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InitialStructs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9B50B0BEF759BB87CEE13A2 /* Pods-InitialStructs-InitialStructsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InitialStructs-InitialStructsUITests.debug.xcconfig"; path = "Target Support Files/Pods-InitialStructs-InitialStructsUITests/Pods-InitialStructs-InitialStructsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F60E13822734F33600DAB780 /* TaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTests.swift; sourceTree = "<group>"; };
 		F6663C56271F3711003427B9 /* InitialStructs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InitialStructs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6663C59271F3711003427B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6663C5B271F3711003427B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			children = (
 				F6663C70271F3712003427B9 /* InitialStructsTests.swift */,
 				F6663C72271F3712003427B9 /* Info.plist */,
+				F60E13822734F33600DAB780 /* TaskTests.swift */,
 			);
 			path = InitialStructsTests;
 			sourceTree = "<group>";
@@ -484,6 +487,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F60E13832734F33600DAB780 /* TaskTests.swift in Sources */,
 				F6663C71271F3712003427B9 /* InitialStructsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,8 +14,8 @@
             filePath = "InitialStructs/View/TaskView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
@@ -50,6 +50,246 @@
                   offsetFromSymbolStart = "768">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E5D279E1-8CA8-4EE7-8A34-92F0869391B9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InitialStructsTests/TaskTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "testExample()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E5D279E1-8CA8-4EE7-8A34-92F0869391B9 - 1cb21007f4c9b143"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "InitialStructsTests.TaskTests.testExample() throws -&gt; ()"
+                  moduleName = "InitialStructsTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/m.talhasubzwari/Desktop/Xcode%20codes/ClassDemo/Project/InitialStructs/InitialStructsTests/TaskTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "1952">
+               </Location>
+               <Location
+                  uuid = "E5D279E1-8CA8-4EE7-8A34-92F0869391B9 - 1cb21007f4c9b143"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "InitialStructsTests.TaskTests.testExample() throws -&gt; ()"
+                  moduleName = "InitialStructsTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/m.talhasubzwari/Desktop/Xcode%20codes/ClassDemo/Project/InitialStructs/InitialStructsTests/TaskTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "2084">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2E38E21A-4346-4F09-BA51-BBBD4B01FF3B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InitialStructsTests/TaskTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "TaskTests"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "2E38E21A-4346-4F09-BA51-BBBD4B01FF3B - 1cb21007f4c9b162"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "InitialStructsTests.TaskTests.testExample() throws -&gt; ()"
+                  moduleName = "InitialStructsTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/m.talhasubzwari/Desktop/Xcode%20codes/ClassDemo/Project/InitialStructs/InitialStructsTests/TaskTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "2168">
+               </Location>
+               <Location
+                  uuid = "2E38E21A-4346-4F09-BA51-BBBD4B01FF3B - 1cb21007f4c9b120"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "InitialStructsTests.TaskTests.testExample() throws -&gt; ()"
+                  moduleName = "InitialStructsTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/m.talhasubzwari/Desktop/Xcode%20codes/ClassDemo/Project/InitialStructs/InitialStructsTests/TaskTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "3044">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DC6F9D24-3C5F-4564-BD9B-9B36B440B561"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InitialStructsTests/TaskTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "TaskTests"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6558D5AD-3983-49E6-A8A4-E80953C3666B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InitialStructsTests/TaskTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "testExample()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9D0F2202-FF25-491E-8B92-D50DDDE061EF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InitialStructsTests/TaskTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "testExample()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9CE778D4-8F21-4E81-8AAD-819696BB0115"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InitialStructsTests/TaskTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "testExample()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8BA47BF9-1BD2-456A-A7A3-23887A64EF1E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InitialStructsTests/TaskTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "testExample()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "256A73BB-12C7-45DD-9BFE-27C3F4E11FFB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InitialStructsTests/TaskTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "testExample()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "256A73BB-12C7-45DD-9BFE-27C3F4E11FFB - 1cb21007f4c9b18d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "InitialStructsTests.TaskTests.testExample() throws -&gt; ()"
+                  moduleName = "InitialStructsTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/m.talhasubzwari/Desktop/Xcode%20codes/ClassDemo/Project/InitialStructs/InitialStructsTests/TaskTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "1664">
+               </Location>
+               <Location
+                  uuid = "256A73BB-12C7-45DD-9BFE-27C3F4E11FFB - 1cb21007f4c9b1ac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "InitialStructsTests.TaskTests.testExample() throws -&gt; ()"
+                  moduleName = "InitialStructsTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/m.talhasubzwari/Desktop/Xcode%20codes/ClassDemo/Project/InitialStructs/InitialStructsTests/TaskTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "1364">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "59DAC7CB-0F1C-4F4A-B178-AE3FAD2A4C34"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InitialStructsTests/TaskTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -14,6 +14,7 @@ struct TaskView: View {
     @State private var selection: String? = "A"
     @ObservedObject private var taskViewModel = TaskViewModel()
 //    @ObservedObject private var user = UserViewModel();
+    
     var width  = UIScreen.main.bounds.width
     var body: some View {
             NavigationView {
@@ -69,10 +70,6 @@ struct TaskView: View {
                 .navigationBarTitleDisplayMode(.inline)
                  .onAppear(){
                         self.taskViewModel.fetchData()
-        //                var testingFilter = self.taskViewModel.tasks.filter{$0.isNotClaimed()}
-                        print("here")
-        //                print(testingFilter)
-                        print("here")
                 }
         }
     } 
