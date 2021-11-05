@@ -4,7 +4,7 @@
 //
 //  Created by M.Talha  Subzwari on 10/19/21.
 //
-
+/*
 import XCTest
 @testable import InitialStructs
 
@@ -31,3 +31,4 @@ class InitialStructsTests: XCTestCase {
     }
 
 }
+*/
