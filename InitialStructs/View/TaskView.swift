@@ -8,13 +8,9 @@
 import Foundation
 import SwiftUI
 
-let testData = [ Task(name: "Cleaning Dishes", points: 50, dueDate: NSDate.now),
-                 Task(name: "Gardening", points: 50, dueDate: NSDate.now),
-                 Task(name: "Clean the room", points: 50, dueDate: NSDate.now)
-]
 
 struct TaskView: View {
-    var test = testData
+
     @State private var selection: String? = "A"
     @ObservedObject private var taskViewModel = TaskViewModel()
 //    @ObservedObject private var user = UserViewModel();
@@ -54,11 +50,11 @@ struct TaskView: View {
                     }
                     
                     //MARK: To switch between claimed and unclaimed
-                    VStack{
-                        HStack{
-                            Text("Unclaimed").padding()
-                            Text("Claimed").padding()
-                    }
+//                    VStack{
+//                        HStack{
+//                            Text("Unclaimed").padding()
+//                            Text("Claimed").padding()
+//                    }
                 
                     //MARK: Task section.
                         VStack{
@@ -79,8 +75,7 @@ struct TaskView: View {
                         print("here")
                 }
         }
-    }
-}
+    } 
     
     
     

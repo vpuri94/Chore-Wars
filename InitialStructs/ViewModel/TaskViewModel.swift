@@ -26,15 +26,16 @@ class TaskViewModel: ObservableObject{
                 let points = data["points"] as? Int ?? 0
                 let dueDate = data["dueDate"] as? Date ?? NSDate.now
                 let claimed = data["claimed"] as? String ?? ""
-                let task  = Task(id: id, name: name, points: points, dueDate: dueDate, claimed: claimed )
+                let category = data["category"] as? String ?? ""
+                let task  = Task(id: id, name: name, points: points, dueDate: dueDate, claimed: claimed, category: category )
                 return task
             }
         }
     }
     
-    func addData(name:String, points: String, dueDate: Date){
+    func addData(name:String, points: String, dueDate: Date, category: String){
         let points = Int(points) ?? 0
-        var task = Task(name: name, points: points, dueDate: dueDate)
+        var task = Task(name: name, points: points, dueDate: dueDate, category: category)
         let doc = db.collection("Task").addDocument(data: task.taskDict())
         let docID: String = doc.documentID
         task.id = docID

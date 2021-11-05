@@ -18,26 +18,28 @@ struct Task: Identifiable{
     let completed: Bool = false;
     let reviewed: Bool = false;
     let review: Int = 0;
+    let category: String;
     var claimed: String? = ""; // user ID later on
     var team: Team? = nil;
     
-    init(id: String = "", name: String,points: Int,dueDate: Date, claimed: String = "") {
+    init(id: String = "", name: String,points: Int,dueDate: Date, claimed: String = "", category: String) {
         self.id = id
         self.name = name
         self.points  = points
         self.dueDate = dueDate
         self.claimed = claimed
+        self.category = category
     }
     
     func taskDict() ->[String: Any]{
         let dict: [String:Any] = [
-//            "id": id,
             "name": self.name,
             "points": self.points,
             "dueDate": self.dueDate,
             "completed": self.completed,
             "reviewed": self.reviewed,
             "review": self.review,
+            "category": self.category,
             "claimed": self.claimed as Any,
             "team": self.team as Any
             ]
