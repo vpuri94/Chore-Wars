@@ -18,15 +18,19 @@ class UserTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func canCreateInstance() {
+    func testCreateInstance() {
       let instance = User(firstName: "Andrew", lastName: "Butler", displayName: "Abutler")
       XCTAssertNotNil(instance)
+      XCTAssertEqual(instance.firstName, "Andrew")
+      XCTAssertNotEqual(instance.displayName, "dave")
     }
-    func canCreateDict() {
+    func testCreateDict() {
       let instance = User(firstName: "Andrew", lastName: "Butler", displayName: "Abutler")
       let dict = instance.userDict()
       XCTAssertNotNil(dict)
-      XCTAssertTrue(dict["firstName"] as! String == "Andrew")
+      XCTAssertEqual(dict["first_name"] as! String, "Andrew")
+      XCTAssertEqual(dict["last_name"] as! String, "Butler")
+      XCTAssertEqual(dict["display_name"] as! String, "Abutler")
     }
 }
 

@@ -25,7 +25,7 @@ struct User {
         let dict: [String:Any] = [
             "display_name": self.displayName ?? "",
             "first_name": self.firstName ?? "",
-            "last_date": self.lastName ?? "",
+            "last_name": self.lastName ?? "",
             "avatar": self.avatar as Any,
             "team": self.team as Any,
             ]
