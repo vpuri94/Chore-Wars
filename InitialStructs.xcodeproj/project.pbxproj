@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4998EE472734EE2600227D41 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4998EE462734EE2600227D41 /* GoogleService-Info.plist */; };
+		4998EE4B2734F52C00227D41 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4998EE482734F35900227D41 /* UserTests.swift */; };
 		9215294CD8F0C9A9D6429E10 /* Pods_InitialStructs_InitialStructsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F92CF8A92A9D22546F336F22 /* Pods_InitialStructs_InitialStructsUITests.framework */; };
 		F342791B7C8E6E347FE00116 /* Pods_InitialStructs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB6F44CF4F8C84A95F48D9F5 /* Pods_InitialStructs.framework */; };
 		F6663C5A271F3711003427B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6663C59271F3711003427B9 /* AppDelegate.swift */; };
@@ -18,7 +20,6 @@
 		F6663C71271F3712003427B9 /* InitialStructsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6663C70271F3712003427B9 /* InitialStructsTests.swift */; };
 		F6663C7C271F3712003427B9 /* InitialStructsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6663C7B271F3712003427B9 /* InitialStructsUITests.swift */; };
 		F6663C8B271F378F003427B9 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6663C8A271F378F003427B9 /* Task.swift */; };
-		F6663C8D271F3C3E003427B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6663C8C271F3C3E003427B9 /* GoogleService-Info.plist */; };
 		F6663C8F27205F56003427B9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6663C8E27205F56003427B9 /* User.swift */; };
 		F6663C92272060A0003427B9 /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6663C91272060A0003427B9 /* TaskView.swift */; };
 		F6663C952720CFB1003427B9 /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6663C942720CFB1003427B9 /* TaskViewModel.swift */; };
@@ -48,6 +49,8 @@
 
 /* Begin PBXFileReference section */
 		3DAD4D3CFA7F51D73883865E /* Pods-InitialStructs-InitialStructsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InitialStructs-InitialStructsUITests.release.xcconfig"; path = "Target Support Files/Pods-InitialStructs-InitialStructsUITests/Pods-InitialStructs-InitialStructsUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4998EE462734EE2600227D41 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4998EE482734F35900227D41 /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		54FD79BA087A6CB816BE3ECE /* Pods_InitialStructsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InitialStructsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C64639AFA54222680B18BFB /* Pods-InitialStructs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InitialStructs.release.xcconfig"; path = "Target Support Files/Pods-InitialStructs/Pods-InitialStructs.release.xcconfig"; sourceTree = "<group>"; };
 		7D1B637764F6F430E95FC5B2 /* Pods-InitialStructs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InitialStructs.debug.xcconfig"; path = "Target Support Files/Pods-InitialStructs/Pods-InitialStructs.debug.xcconfig"; sourceTree = "<group>"; };
@@ -70,7 +73,6 @@
 		F6663C7B271F3712003427B9 /* InitialStructsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialStructsUITests.swift; sourceTree = "<group>"; };
 		F6663C7D271F3712003427B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6663C8A271F378F003427B9 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
-		F6663C8C271F3C3E003427B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F6663C8E27205F56003427B9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F6663C91272060A0003427B9 /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 		F6663C942720CFB1003427B9 /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
@@ -165,7 +167,7 @@
 				F6663C5F271F3712003427B9 /* Assets.xcassets */,
 				F6663C64271F3712003427B9 /* LaunchScreen.storyboard */,
 				F6663C67271F3712003427B9 /* Info.plist */,
-				F6663C8C271F3C3E003427B9 /* GoogleService-Info.plist */,
+				4998EE462734EE2600227D41 /* GoogleService-Info.plist */,
 				F6663C61271F3712003427B9 /* Preview Content */,
 			);
 			path = InitialStructs;
@@ -182,6 +184,7 @@
 		F6663C6F271F3712003427B9 /* InitialStructsTests */ = {
 			isa = PBXGroup;
 			children = (
+				4998EE482734F35900227D41 /* UserTests.swift */,
 				F6663C70271F3712003427B9 /* InitialStructsTests.swift */,
 				F6663C72271F3712003427B9 /* Info.plist */,
 			);
@@ -337,8 +340,8 @@
 			files = (
 				F6663C66271F3712003427B9 /* LaunchScreen.storyboard in Resources */,
 				F6663C63271F3712003427B9 /* Preview Assets.xcassets in Resources */,
+				4998EE472734EE2600227D41 /* GoogleService-Info.plist in Resources */,
 				F6663C60271F3712003427B9 /* Assets.xcassets in Resources */,
-				F6663C8D271F3C3E003427B9 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +487,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4998EE4B2734F52C00227D41 /* UserTests.swift in Sources */,
 				F6663C71271F3712003427B9 /* InitialStructsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -581,6 +585,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALIDATE_PRODUCT = NO;
 			};
 			name = Debug;
 		};
@@ -690,7 +695,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QAJZLU4J5X;
+				DEVELOPMENT_TEAM = UN24S58W9R;
 				INFOPLIST_FILE = InitialStructsTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -713,7 +718,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QAJZLU4J5X;
+				DEVELOPMENT_TEAM = UN24S58W9R;
 				INFOPLIST_FILE = InitialStructsTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
