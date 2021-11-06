@@ -22,10 +22,14 @@ class UserViewModel: ObservableObject{
             }
             self.user = documents.map { (queryDocumentSnapshot) in
                 let data = queryDocumentSnapshot.data()
-                let displayName = data["display_name"] as? String ?? ""
-                let firstName = data["first_name"] as? String ?? ""
-                let lastName = data["last_name"] as? String ?? ""
-                let user = User(firstName: firstName, lastName: lastName, displayName: displayName)
+                let displayName = data["displayName"] as? String ?? ""
+                let firstName = data["firstName"] as? String ?? ""
+                let lastName = data["lastName"] as? String ?? ""
+                let team = data["team"] as? String ?? ""
+                let totalPoints = data["totalPoints"] as? Int ?? 0
+                var user = User(firstName: firstName, lastName: lastName, displayName: displayName)
+                user.team = team
+                user.totalPoints = totalPoints
                 return user
             }
         }

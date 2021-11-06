@@ -10,13 +10,18 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView{
-            TaskView()
-                .tabItem{
+            DashboardView().tabItem {
+                Label("Dashboard",systemImage: "list.dash")
+            }
+            LeaderboardView().tabItem{
+                Label("Leaderboard",systemImage: "list.number")
+            }
+            TaskView().tabItem{
                 Label("Tasks",systemImage: "paintbrush")
-                }
-                AddNewChoreView().tabItem{
-                    Label("Add New Chore", systemImage: "plus")
-                }
+            }
+            AddNewChoreView().tabItem{
+                Label("Add New Chore", systemImage: "plus")
+            }
         }
     }
 }

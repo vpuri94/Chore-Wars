@@ -9,11 +9,18 @@
 /* Begin PBXBuildFile section */
 		9215294CD8F0C9A9D6429E10 /* Pods_InitialStructs_InitialStructsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F92CF8A92A9D22546F336F22 /* Pods_InitialStructs_InitialStructsUITests.framework */; };
 		F342791B7C8E6E347FE00116 /* Pods_InitialStructs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB6F44CF4F8C84A95F48D9F5 /* Pods_InitialStructs.framework */; };
+		F6092F8A27358E33000A39D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6092F8927358E33000A39D0 /* Assets.xcassets */; };
+		F6092F9027358E7C000A39D0 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6092F8B27358E7B000A39D0 /* DashboardView.swift */; };
+		F6092F9127358E7C000A39D0 /* BottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6092F8C27358E7B000A39D0 /* BottomBar.swift */; };
+		F6092F9227358E7C000A39D0 /* ScoreCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6092F8D27358E7B000A39D0 /* ScoreCardView.swift */; };
+		F6092F9327358E7C000A39D0 /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6092F8E27358E7B000A39D0 /* CheckBoxView.swift */; };
+		F6092F9427358E7C000A39D0 /* ChoreRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6092F8F27358E7C000A39D0 /* ChoreRow.swift */; };
+		F6092F9627359111000A39D0 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6092F9527359111000A39D0 /* LeaderboardView.swift */; };
+		F6092F98273591BE000A39D0 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6092F97273591BE000A39D0 /* UserTests.swift */; };
 		F60E13832734F33600DAB780 /* TaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60E13822734F33600DAB780 /* TaskTests.swift */; };
 		F6663C5A271F3711003427B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6663C59271F3711003427B9 /* AppDelegate.swift */; };
 		F6663C5C271F3711003427B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6663C5B271F3711003427B9 /* SceneDelegate.swift */; };
 		F6663C5E271F3711003427B9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6663C5D271F3711003427B9 /* ContentView.swift */; };
-		F6663C60271F3712003427B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6663C5F271F3712003427B9 /* Assets.xcassets */; };
 		F6663C63271F3712003427B9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6663C62271F3712003427B9 /* Preview Assets.xcassets */; };
 		F6663C66271F3712003427B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6663C64271F3712003427B9 /* LaunchScreen.storyboard */; };
 		F6663C71271F3712003427B9 /* InitialStructsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6663C70271F3712003427B9 /* InitialStructsTests.swift */; };
@@ -56,12 +63,19 @@
 		D87A23C602D0DD8F37CFDA66 /* Pods-InitialStructsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InitialStructsTests.debug.xcconfig"; path = "Target Support Files/Pods-InitialStructsTests/Pods-InitialStructsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DB6F44CF4F8C84A95F48D9F5 /* Pods_InitialStructs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InitialStructs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9B50B0BEF759BB87CEE13A2 /* Pods-InitialStructs-InitialStructsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InitialStructs-InitialStructsUITests.debug.xcconfig"; path = "Target Support Files/Pods-InitialStructs-InitialStructsUITests/Pods-InitialStructs-InitialStructsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F6092F8927358E33000A39D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../../../../Downloads/Dashboard UI/Assets.xcassets"; sourceTree = "<group>"; };
+		F6092F8B27358E7B000A39D0 /* DashboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DashboardView.swift; path = "../../../../../../../Downloads/Dashboard UI/DashboardView.swift"; sourceTree = "<group>"; };
+		F6092F8C27358E7B000A39D0 /* BottomBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomBar.swift; sourceTree = "<group>"; };
+		F6092F8D27358E7B000A39D0 /* ScoreCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreCardView.swift; sourceTree = "<group>"; };
+		F6092F8E27358E7B000A39D0 /* CheckBoxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
+		F6092F8F27358E7C000A39D0 /* ChoreRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoreRow.swift; sourceTree = "<group>"; };
+		F6092F9527359111000A39D0 /* LeaderboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
+		F6092F97273591BE000A39D0 /* UserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		F60E13822734F33600DAB780 /* TaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTests.swift; sourceTree = "<group>"; };
 		F6663C56271F3711003427B9 /* InitialStructs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InitialStructs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6663C59271F3711003427B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6663C5B271F3711003427B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F6663C5D271F3711003427B9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		F6663C5F271F3712003427B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F6663C62271F3712003427B9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F6663C65271F3712003427B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F6663C67271F3712003427B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -164,7 +178,7 @@
 				F6663C59271F3711003427B9 /* AppDelegate.swift */,
 				F6663C5B271F3711003427B9 /* SceneDelegate.swift */,
 				F6663C9027206079003427B9 /* View */,
-				F6663C5F271F3712003427B9 /* Assets.xcassets */,
+				F6092F8927358E33000A39D0 /* Assets.xcassets */,
 				F6663C64271F3712003427B9 /* LaunchScreen.storyboard */,
 				F6663C67271F3712003427B9 /* Info.plist */,
 				F6663C8C271F3C3E003427B9 /* GoogleService-Info.plist */,
@@ -186,6 +200,7 @@
 			children = (
 				F6663C70271F3712003427B9 /* InitialStructsTests.swift */,
 				F6663C72271F3712003427B9 /* Info.plist */,
+				F6092F97273591BE000A39D0 /* UserTests.swift */,
 				F60E13822734F33600DAB780 /* TaskTests.swift */,
 			);
 			path = InitialStructsTests;
@@ -214,9 +229,15 @@
 			isa = PBXGroup;
 			children = (
 				F6663C91272060A0003427B9 /* TaskView.swift */,
+				F6092F8C27358E7B000A39D0 /* BottomBar.swift */,
+				F6092F8E27358E7B000A39D0 /* CheckBoxView.swift */,
+				F6092F8F27358E7C000A39D0 /* ChoreRow.swift */,
 				F6663C5D271F3711003427B9 /* ContentView.swift */,
+				F6092F9527359111000A39D0 /* LeaderboardView.swift */,
+				F6092F8D27358E7B000A39D0 /* ScoreCardView.swift */,
 				F6663C9627212EC2003427B9 /* AddNewChoreView.swift */,
 				F6FC0A0B2730C34A0046E3C8 /* TaskRow.swift */,
+				F6092F8B27358E7B000A39D0 /* DashboardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -340,8 +361,8 @@
 			files = (
 				F6663C66271F3712003427B9 /* LaunchScreen.storyboard in Resources */,
 				F6663C63271F3712003427B9 /* Preview Assets.xcassets in Resources */,
-				F6663C60271F3712003427B9 /* Assets.xcassets in Resources */,
 				F6663C8D271F3C3E003427B9 /* GoogleService-Info.plist in Resources */,
+				F6092F8A27358E33000A39D0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,14 +491,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6663C992721D206003427B9 /* Team.swift in Sources */,
+				F6092F9327358E7C000A39D0 /* CheckBoxView.swift in Sources */,
+				F6092F9427358E7C000A39D0 /* ChoreRow.swift in Sources */,
+				F6092F9227358E7C000A39D0 /* ScoreCardView.swift in Sources */,
 				F6663C9727212EC2003427B9 /* AddNewChoreView.swift in Sources */,
+				F6092F9027358E7C000A39D0 /* DashboardView.swift in Sources */,
 				F6663C8B271F378F003427B9 /* Task.swift in Sources */,
 				F6663C9B2721D277003427B9 /* UserViewModel.swift in Sources */,
+				F6092F9627359111000A39D0 /* LeaderboardView.swift in Sources */,
 				F6663C952720CFB1003427B9 /* TaskViewModel.swift in Sources */,
 				F6663C5A271F3711003427B9 /* AppDelegate.swift in Sources */,
 				F6663C5C271F3711003427B9 /* SceneDelegate.swift in Sources */,
 				F6663C92272060A0003427B9 /* TaskView.swift in Sources */,
 				F6FC0A0C2730C34A0046E3C8 /* TaskRow.swift in Sources */,
+				F6092F9127358E7C000A39D0 /* BottomBar.swift in Sources */,
 				F6663C8F27205F56003427B9 /* User.swift in Sources */,
 				F6663C5E271F3711003427B9 /* ContentView.swift in Sources */,
 			);
@@ -487,6 +514,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6092F98273591BE000A39D0 /* UserTests.swift in Sources */,
 				F60E13832734F33600DAB780 /* TaskTests.swift in Sources */,
 				F6663C71271F3712003427B9 /* InitialStructsTests.swift in Sources */,
 			);

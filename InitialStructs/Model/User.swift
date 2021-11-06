@@ -13,7 +13,8 @@ struct User {
     let lastName: String!;
     let displayName: String!;
     let avatar: UIImage? = nil;
-    let team: Team? = nil
+    var team: String? = "";
+    var totalPoints: Int = 0;
   
   init(firstName: String, lastName: String, displayName: String) {
     self.firstName = firstName
@@ -23,13 +24,14 @@ struct User {
     
     func userDict() ->[String: Any]{
         let dict: [String:Any] = [
-            "display_name": self.displayName ?? "",
-            "first_name": self.firstName ?? "",
-            "last_date": self.lastName ?? "",
+            "displayName": self.displayName ?? "",
+            "firstName": self.firstName ?? "",
+            "lastName": self.lastName ?? "",
             "avatar": self.avatar as Any,
             "team": self.team as Any,
+            "totalPoints": self.totalPoints,
             ]
         return dict
     }
-  
 }
+  
