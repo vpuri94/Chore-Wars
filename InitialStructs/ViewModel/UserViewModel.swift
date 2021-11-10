@@ -27,9 +27,8 @@ class UserViewModel: ObservableObject{
                 let lastName = data["lastName"] as? String ?? ""
                 let team = data["team"] as? String ?? ""
                 let totalPoints = data["totalPoints"] as? Int ?? 0
-                var user = User(firstName: firstName, lastName: lastName, displayName: displayName)
+                var user = User(firstName: firstName, lastName: lastName, displayName: displayName, totalPoints: totalPoints)
                 user.team = team
-                user.totalPoints = totalPoints
                 return user
             }
         }
@@ -37,7 +36,7 @@ class UserViewModel: ObservableObject{
     
     func addData(firstName:String, lastName: String, displayName: String){
         let ref: DocumentReference? = nil
-        let user = User(firstName: firstName, lastName: lastName, displayName: displayName  )
+        let user = User(firstName: firstName, lastName: lastName, displayName: displayName, totalPoints: 0  )
         db.collection("User").addDocument(data: user.userDict())
         {
             err in
@@ -46,6 +45,20 @@ class UserViewModel: ObservableObject{
             } else {
                 print("Document added with ID: \(ref!.documentID )")
             }
+        }
     }
-}
+    func updatePoints(userId:String,points:Int){
+        let user = db.collection("User").document(userId)
+        user.getDocument { (document, error) in
+            if let document = document, document.exists {
+                var totalPoints = document.get("totalPoints")
+                totalPoints = totalPoints as! Int + points
+                self.db.collection("User").document(userId).updateData(["totalPoints": totalPoints])
+            } else {
+                print("Document does not exist")
+            }
+        }
+//            var user = User(firstName: firstName, lastName: lastName, displayName: displayName, totalPoints: totalPoints)
+    }
+
 }

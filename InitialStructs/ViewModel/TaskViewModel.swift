@@ -42,10 +42,9 @@ class TaskViewModel: ObservableObject{
         db.collection("Task").document(doc.documentID).updateData(["id": docID])
     }
     
-    func updateData(id: String, user: User){
-        let id = db.collection("Task").document(id).documentID
-        db.collection("Task").document(id).updateData(["claimed": user.id])
-
+    func updateData(taskId: String, userID: String) {
+        let id = db.collection("Task").document(taskId).documentID
+        db.collection("Task").document(id).updateData(["claimed": userID])
     }
 }
 

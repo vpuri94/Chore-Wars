@@ -16,10 +16,11 @@ struct User {
     var team: String? = "";
     var totalPoints: Int = 0;
   
-  init(firstName: String, lastName: String, displayName: String) {
-    self.firstName = firstName
-    self.lastName = lastName
-    self.displayName = displayName
+    init(firstName: String, lastName: String, displayName: String, totalPoints: Int) {
+        self.firstName = firstName
+        self.lastName = lastName
+        self.displayName = displayName
+        self.totalPoints = totalPoints
     }
     
     func userDict() ->[String: Any]{

@@ -9,8 +9,10 @@ import SwiftUI
 
 struct TaskRow: View{
     @State var task: Task
-    let user = User(firstName: "Talha", lastName: "Subzwari" , displayName: "Copperbolt")
+//    let user = User(firstName: "Talha", lastName: "Subzwari" , displayName: "Copperbolt", totalPoints: 300)
+    let userId = "HkcEBsGUnrEXzNRFief1"
     @ObservedObject private var taskViewModel = TaskViewModel()
+    @ObservedObject private var userViewModel = UserViewModel()
     var body: some View{
         
         HStack{
@@ -38,8 +40,10 @@ struct TaskRow: View{
     
      func claimAChore(){
         if(task.isNotClaimed()){
-            task.claimed = user.id
-            taskViewModel.updateData(id: task.id,user: user)
+            task.claimed = userId
+            taskViewModel.updateData(taskId: task.id
+                                     , userID: userId)
+            userViewModel.updatePoints(userId: userId, points: task.points)
         }
     }
     
