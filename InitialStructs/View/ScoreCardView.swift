@@ -8,6 +8,13 @@
 import SwiftUI
 
 struct ScoreCardView: View {
+//    @State var currentUser: User
+    
+//    var nullCase = User(firstName: "Null", lastName: "Null", displayName: "NULL", totalPoints: 0)
+    @ObservedObject private var user = UserViewModel()
+    @ObservedObject private var tasks = TaskViewModel()
+//    var currentUser = UserViewModel().currentUser
+    
     let width = UIScreen.main.bounds.width
     var body: some View {
         let image = Image("profile")
@@ -23,19 +30,21 @@ struct ScoreCardView: View {
                     .frame(width: width*0.3, height: width*0.3, alignment: .center)
                         .padding()
                 VStack (alignment: .leading) {
-                    Text("Andrew123")
-                        .fontWeight(.bold)
-                    Text("800pts")
-                        .fontWeight(.light)
+                    Text(user.currentUser?.displayName ?? "Andrew124").fontWeight(.bold)
+                    Text(String(user.currentUser?.totalPoints ?? 900)).fontWeight(.light)
                 }
             }
+            
         }
-        .padding()
+        .onAppear(){
+            self.user.getUser(userId: "HkcEBsGUnrEXzNRFief1")
+        }
+        
     }
-}
+    }
 
-struct ScoreCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        ScoreCardView()
-    }
-}
+//struct ScoreCardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ScoreCardView()
+//    }
+//}

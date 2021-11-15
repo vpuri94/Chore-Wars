@@ -8,25 +8,31 @@
 import SwiftUI
 
 struct ChoreRow: View {
+    @State var task : Task
+//    @State var user = UserViewModel()
     @State private var checked = true
     var body: some View {
+//    List(self.user.currentUserTasks, id: \.id) { eachTask in
         HStack (alignment:.center) {
             VStack (alignment:.leading){
-                Text("Sweeping Leaves")
+                Text(task.name)
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 Spacer()
-                Text("Due Mon, 10/4 at 2:00pm")
+                Text("Due \(task.getDate())")
             }.padding()
             Spacer()
-            CheckBoxView(checked: $checked)
-                .padding()
-            Spacer()
+            VStack{
+                CheckBoxView(checked: $checked)
+                    .padding()
+                Text("Completed")
+                Spacer()
+                Text(String(task.points))
+                
+            }
         }
     }
+//    .onAppear(){
+//        self.user.getTasksForCurrentUser(userId: "HkcEBsGUnrEXzNRFief1")
+//    }
 }
 
-struct ChoreRow_Previews: PreviewProvider {
-    static var previews: some View {
-        ChoreRow()
-    }
-}

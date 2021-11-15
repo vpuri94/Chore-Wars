@@ -10,10 +10,16 @@ import Foundation
 
 import Foundation
 import FirebaseFirestore
+import SwiftUI
 
 class UserViewModel: ObservableObject{
     @Published var user = [User]()
+    @Published var currentUser: User? = nil
+    @Published var currentUserTasks = [Task]()
+    
+    
     private var db = Firestore.firestore()
+    
     func fetchData(){
         db.collection("User").addSnapshotListener{ (querySnapshot, error) in
             
@@ -53,12 +59,52 @@ class UserViewModel: ObservableObject{
             if let document = document, document.exists {
                 var totalPoints = document.get("totalPoints")
                 totalPoints = totalPoints as! Int + points
-                self.db.collection("User").document(userId).updateData(["totalPoints": totalPoints])
+                self.db.collection("User").document(userId).updateData(["totalPoints": totalPoints ?? 0])
             } else {
                 print("Document does not exist")
             }
         }
 //            var user = User(firstName: firstName, lastName: lastName, displayName: displayName, totalPoints: totalPoints)
     }
-
+    
+    func getUser(userId:String){
+   
+        let getUser = db.collection("User").document(userId)
+        getUser.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let displayName = document.get("displayName") as? String ?? ""
+                let firstName = document.get("firstName") as? String ?? ""
+                let lastName = document.get("lastName") as? String ?? ""
+                let team = document.get("team") as? String ?? ""
+                let totalPoints = document.get("totalPoints") as? Int ?? 0
+                var user = User(firstName: firstName, lastName: lastName, displayName: displayName, totalPoints: totalPoints)
+                user.team = team
+                self.currentUser = user
+            } else {
+                print("Document does not exist")
+            }
+        }
+    }
+    
+    func getTasksForCurrentUser(userId:String){
+        currentUserTasks = [Task]()
+        
+        db.collection("Task").whereField("claimed", isEqualTo: userId)
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        print("\(document.documentID) => \(document.data())")
+                        let id  = document["id"] as? String ?? ""
+                        let name = document["name"] as? String ?? ""
+                        let points = document["points"] as? Int ?? 0
+                        let dueDate = document["dueDate"] as? Date ?? NSDate.now
+                        let category = document["category"] as? String ?? ""
+                        let newTask = Task(id: id, name: name, points: points, dueDate: dueDate, claimed: userId, category: category)
+                        self.currentUserTasks.append(newTask)
+                    }
+                }
+        }
+    }
 }

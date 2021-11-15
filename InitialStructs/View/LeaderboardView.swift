@@ -18,36 +18,27 @@ var width  = UIScreen.main.bounds.width
 @State var rank: Int = 1
 var body: some View {
        NavigationView {
-         List(self.userViewModel.user.sorted(by: {$0.totalPoints > $1.totalPoints}),id: \.id) { eachUser in
+//           Color.lighterGray
+           List(self.userViewModel.user.sorted(by: {$0.totalPoints > $1.totalPoints}),id: \.id) { eachUser in
            HStack{
              Text(eachUser.displayName)
              Spacer()
              Text(String(eachUser.totalPoints))
            }
+
          }
            .navigationBarTitle("Leaderboard").font(.custom("Montserrat", size: 20))
            .navigationBarTitleDisplayMode(.inline)
-            .onAppear(){
-                   self.taskViewModel.fetchData()
-                   self.userViewModel.fetchData()
-   //                var testingFilter = self.taskViewModel.tasks.filter{$0.isNotClaimed()}
-                   print("here")
-              
-   //                print(testingFilter)
-                   print("here")
-           }
-   }
+           .onAppear(){
+                  self.taskViewModel.fetchData()
+                  self.userViewModel.fetchData()
+          }
+       }
+    }
 }
-}
-
-
-
-
 
 struct LeaderboardView_Previews: PreviewProvider {
     static var previews: some View {
         LeaderboardView()
     }
 }
-
-

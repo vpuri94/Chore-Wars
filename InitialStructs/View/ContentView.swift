@@ -11,18 +11,27 @@ struct ContentView: View {
     var body: some View {
         TabView{
             DashboardView().tabItem {
-                Label("Dashboard",systemImage: "list.dash")
+                Image( "dashboard-icon")
             }
             LeaderboardView().tabItem{
-                Label("Leaderboard",systemImage: "list.number")
-            }
-            TaskView().tabItem{
-                Label("Tasks",systemImage: "paintbrush")
+                Image( "leaderboard-icon")
             }
             AddNewChoreView().tabItem{
-                Label("Add New Chore", systemImage: "plus")
+                Image( "add-icon")
             }
+            TaskView().tabItem{
+                Image("chores-icon")
+            }
+            TaskView().tabItem{
+                Image("reviews-icon")
+            }
+            
         }
+        
+        .padding()
+        .background(Color.white)
+        .clipShape(Rectangle())
+        .shadow(radius: 3)
     }
 }
 

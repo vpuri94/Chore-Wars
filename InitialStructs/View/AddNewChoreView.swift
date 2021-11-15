@@ -8,7 +8,6 @@
 import Foundation
 import SwiftUI
 
-import SwiftUI
 
 
 struct AddNewChoreView: View {
@@ -19,43 +18,49 @@ struct AddNewChoreView: View {
     @State private var dueDate = Date()
     @State private var startDate = Date()
     var width  = UIScreen.main.bounds.width
+    var height = UIScreen.main.bounds.height
     var categories = ["Outdoor","Cleaning","Shopping"]
     @State var cat = ""
     var body: some View {
         NavigationView{
             VStack{
                 VStack{
-                    Text("Chore Name")
-                        .font(.headline).frame(width: width-50, height: 10 ,alignment: .topLeading)
-                        .foregroundColor(.gray)
-                    TextField("Name", text: $name).frame(width: width-50, height: 10, alignment: .center).padding()
+                    Text("Chore Name").font(.title).frame(width: width-50,alignment: .leading).foregroundColor(.gray)
+                    TextField("Name",text: $name)
+                        .font(.custom("Montserrat",size: 10))
+                        .foregroundColor(.blue)
+                                .frame(width: width-50)
                     Divider()
                      .frame(height: 1)
-                     .padding(.horizontal, 30)
+                     .padding(.horizontal, 10)
                      .background(Color.gray)
                 }
 //                .frame(width: width, height: 100, alignment: .topLeading)
                 
                     
                 VStack{
-                    Text("Possible Points Earned").font(.headline).frame(width: width-50, alignment: .leading).foregroundColor(.gray)
+                    Text("Possible Points Earned").font(.headline).frame(width: width-50,alignment: .leading).foregroundColor(.gray)
                     TextField("Points",text: $points)
-                        .font(.custom("Montserrat", size: 30))
+                        .font(.custom("Montserrat", size: 10))
                         .foregroundColor(.blue)
-                        .frame(width: width-50, height: 10,alignment: .leading)
+                        .frame(width: width-50)
                 }
                 Divider()
-                VStack{
-                    Text("Start")
-                    DatePicker("", selection: $startDate, in: Date()..., displayedComponents: .date).frame(width: width-50, alignment: .center).padding()
-                    Text("Due Date")
-                    DatePicker("", selection: $dueDate, in: Date()..., displayedComponents: .date).padding()
-                    VStack{
-                        ForEach(categories, id:\.self){ category in
+                    HStack{
+                        Text("Start")
+                        DatePicker("", selection: $startDate, in: Date()..., displayedComponents: .date).padding()
+                    }
+                    HStack{
+                        Text("Due Date")
+                        DatePicker("", selection: $dueDate, in: Date()..., displayedComponents: .date).padding()
+                    }
+
+                ForEach(categories, id:\.self){ category in
                             Button(action:{
                                 cat = category
                             }, label: {
                                 Text(category)
+                                    .frame(width:width-100)
                                     .padding()
                                     .background(
                                         RoundedRectangle(cornerRadius: 10)
@@ -64,9 +69,18 @@ struct AddNewChoreView: View {
                                 }
                             )
                         }
-                    }
-                }
-                VStack{
+                    Button( action:{
+                        cat = "String"
+                    },label:{
+                        Text("Add New Category")
+                            .frame(width:width-100)
+                            .padding()
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(lineWidth: 2)
+                            )
+                    }).disabled(true)
+               
                     Button(action:{
                         self.taskViewModel.addData(name: name,points: points,dueDate: dueDate, category: cat)
                     }, label:{
@@ -82,13 +96,10 @@ struct AddNewChoreView: View {
                         }
                     ).padding()
                 }
-            }
             .padding()
             .navigationTitle("Add New Chore")
             .navigationBarTitleDisplayMode(.inline)
             Spacer()
         }
-            
     }
-
 }

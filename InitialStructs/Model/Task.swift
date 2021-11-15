@@ -67,6 +67,10 @@ struct Task: Identifiable{
         }
         return false
     }
+    func isCompleted() -> Bool {
+        return self.completed
+        
+    }
     
     
 }

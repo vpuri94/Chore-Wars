@@ -13,14 +13,13 @@ struct TaskView: View {
 
     @State private var selection: String? = "A"
     @ObservedObject private var taskViewModel = TaskViewModel()
-//    @ObservedObject private var user = UserViewModel();
     
     var width  = UIScreen.main.bounds.width
     var body: some View {
             NavigationView {
                 VStack{
-//
                     VStack{
+                        
                         ZStack{
                             Rectangle().frame(width: UIScreen.main.bounds.width-50, height: 75, alignment: .topLeading)
                                 .cornerRadius(15)
@@ -36,6 +35,7 @@ struct TaskView: View {
                                     .frame(alignment: .trailing)
                             }
                         }
+                        
                         ZStack{
                             Rectangle()
                                 .frame(width: UIScreen.main.bounds.width-50, height: 75, alignment: .trailing)
@@ -49,14 +49,6 @@ struct TaskView: View {
                             }
                         }
                     }
-                    
-                    //MARK: To switch between claimed and unclaimed
-//                    VStack{
-//                        HStack{
-//                            Text("Unclaimed").padding()
-//                            Text("Claimed").padding()
-//                    }
-                
                     //MARK: Task section.
                         VStack{
                             List(taskViewModel.tasks,id: \.id){ task in
@@ -65,14 +57,17 @@ struct TaskView: View {
                             }
                         }
                     }
-                }
                 .navigationBarTitle("Tasks").font(.custom("Montserrat", size: 20))
                 .navigationBarTitleDisplayMode(.inline)
                  .onAppear(){
                         self.taskViewModel.fetchData()
                 }
-        }
-    } 
+                
+            }
+        
+    }
+    
+}
     
     
     
