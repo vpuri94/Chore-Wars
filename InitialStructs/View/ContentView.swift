@@ -8,7 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    init() {
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.backgroundColor = UIColor.white
+        navBarAppearance.shadowColor = UIColor.gray
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.shadowColor = nil // or a custom tint color
+        appearance.shadowImage = UIImage(named: "shadow")
+        UINavigationBar.appearance().standardAppearance = appearance
+    }
     var body: some View {
+//        var selection = 1
         TabView{
             DashboardView().tabItem {
                 Image( "dashboard-icon")
