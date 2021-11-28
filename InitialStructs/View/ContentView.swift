@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+    @State private var loggedIn = UserViewModel().signedIn
+//    @EnvironmentObject var authentication: Authentication
     init() {
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.backgroundColor = UIColor.white
@@ -20,35 +21,46 @@ struct ContentView: View {
         UINavigationBar.appearance().standardAppearance = appearance
     }
     var body: some View {
-//        var selection = 1
-        TabView{
-            DashboardView().tabItem {
-                Image( "dashboard-icon")
-            }
-            LeaderboardView().tabItem{
-                Image( "leaderboard-icon")
-            }
-            AddNewChoreView().tabItem{
-                Image( "add-icon")
-            }
-            TaskView().tabItem{
-                Image("chores-icon")
-            }
-            TaskView().tabItem{
-                Image("reviews-icon")
-            }
-            
+        switch loggedIn{
+        case true:
+            TabViews()
+        case false:
+            LogInView()
         }
         
-        .padding()
-        .background(Color.white)
-        .clipShape(Rectangle())
-        .shadow(radius: 3)
     }
+        
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+struct TabViews: View{
+    var body: some View{
+        TabView {
+                DashboardView().tabItem {
+                    Image( "dashboard-icon")
+                }
+                LeaderboardView().tabItem{
+                    Image( "leaderboard-icon")
+                }
+                AddNewChoreView().tabItem{
+                    Image( "add-icon")
+                }
+                TaskView().tabItem{
+                    Image("chores-icon")
+                }
+                TaskView().tabItem{
+                    Image("reviews-icon")
+                }
+                
+            }
+            .padding()
+            .background(Color.white)
+            .clipShape(Rectangle())
+            .shadow(radius: 3)
     }
 }

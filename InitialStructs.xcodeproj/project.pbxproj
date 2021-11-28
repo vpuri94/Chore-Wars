@@ -18,6 +18,8 @@
 		F6092F9627359111000A39D0 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6092F9527359111000A39D0 /* LeaderboardView.swift */; };
 		F6092F98273591BE000A39D0 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6092F97273591BE000A39D0 /* UserTests.swift */; };
 		F60E13832734F33600DAB780 /* TaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60E13822734F33600DAB780 /* TaskTests.swift */; };
+		F618C9ED274D431900350695 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F618C9EC274D431900350695 /* LogInView.swift */; };
+		F61AEB6B275082FA005BC56F /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61AEB6A275082FA005BC56F /* AuthViewModel.swift */; };
 		F6663C5A271F3711003427B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6663C59271F3711003427B9 /* AppDelegate.swift */; };
 		F6663C5C271F3711003427B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6663C5B271F3711003427B9 /* SceneDelegate.swift */; };
 		F6663C5E271F3711003427B9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6663C5D271F3711003427B9 /* ContentView.swift */; };
@@ -72,6 +74,8 @@
 		F6092F9527359111000A39D0 /* LeaderboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
 		F6092F97273591BE000A39D0 /* UserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		F60E13822734F33600DAB780 /* TaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTests.swift; sourceTree = "<group>"; };
+		F618C9EC274D431900350695 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
+		F61AEB6A275082FA005BC56F /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		F6663C56271F3711003427B9 /* InitialStructs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InitialStructs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6663C59271F3711003427B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6663C5B271F3711003427B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -238,6 +242,7 @@
 				F6663C9627212EC2003427B9 /* AddNewChoreView.swift */,
 				F6FC0A0B2730C34A0046E3C8 /* TaskRow.swift */,
 				F6092F8B27358E7B000A39D0 /* DashboardView.swift */,
+				F618C9EC274D431900350695 /* LogInView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -247,6 +252,7 @@
 			children = (
 				F6663C942720CFB1003427B9 /* TaskViewModel.swift */,
 				F6663C9A2721D277003427B9 /* UserViewModel.swift */,
+				F61AEB6A275082FA005BC56F /* AuthViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -263,6 +269,7 @@
 				F6663C53271F3711003427B9 /* Frameworks */,
 				F6663C54271F3711003427B9 /* Resources */,
 				A8DE7E595A0718044FA93025 /* [CP] Embed Pods Frameworks */,
+				7936FCDB4AA396E2BCF600B0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -301,6 +308,7 @@
 				F6663C74271F3712003427B9 /* Frameworks */,
 				F6663C75271F3712003427B9 /* Resources */,
 				6B265ACB347E49001A008337 /* [CP] Embed Pods Frameworks */,
+				C0C4D68DC204F206B6C52D1A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -400,6 +408,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-InitialStructs-InitialStructsUITests/Pods-InitialStructs-InitialStructsUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7936FCDB4AA396E2BCF600B0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InitialStructs/Pods-InitialStructs-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InitialStructs/Pods-InitialStructs-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-InitialStructs/Pods-InitialStructs-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A8DE7E595A0718044FA93025 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -437,6 +462,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C0C4D68DC204F206B6C52D1A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InitialStructs-InitialStructsUITests/Pods-InitialStructs-InitialStructsUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InitialStructs-InitialStructsUITests/Pods-InitialStructs-InitialStructsUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-InitialStructs-InitialStructsUITests/Pods-InitialStructs-InitialStructsUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E8D57B79D4079005CF65FD1F /* [CP] Check Pods Manifest.lock */ = {
@@ -496,6 +538,8 @@
 				F6092F9227358E7C000A39D0 /* ScoreCardView.swift in Sources */,
 				F6663C9727212EC2003427B9 /* AddNewChoreView.swift in Sources */,
 				F6092F9027358E7C000A39D0 /* DashboardView.swift in Sources */,
+				F61AEB6B275082FA005BC56F /* AuthViewModel.swift in Sources */,
+				F618C9ED274D431900350695 /* LogInView.swift in Sources */,
 				F6663C8B271F378F003427B9 /* Task.swift in Sources */,
 				F6663C9B2721D277003427B9 /* UserViewModel.swift in Sources */,
 				F6092F9627359111000A39D0 /* LeaderboardView.swift in Sources */,

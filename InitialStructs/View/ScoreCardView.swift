@@ -10,7 +10,6 @@ import SwiftUI
 struct ScoreCardView: View {
 //    @State var currentUser: User
     
-//    var nullCase = User(firstName: "Null", lastName: "Null", displayName: "NULL", totalPoints: 0)
     @ObservedObject var user:UserViewModel
     @ObservedObject private var tasks = TaskViewModel()
 //    var currentUser = UserViewModel().currentUser

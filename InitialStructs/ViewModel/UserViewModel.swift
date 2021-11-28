@@ -13,37 +13,43 @@ import FirebaseFirestore
 import SwiftUI
 
 class UserViewModel: ObservableObject{
-    @Published var user = [User]()
+    @Published var users = [User]()
     @Published var currentUser: User? = nil
     @Published var currentUserTasks = [Task]()
+    @Published var currentUserID = ""
+    @Published var currentUserEmail = ""
+    @Published var currentUserTeam = ""
+    @Published var signedIn = false
+
     
     
     private var db = Firestore.firestore()
     
     func fetchData(){
         db.collection("User").addSnapshotListener{ (querySnapshot, error) in
-            
             guard let documents = querySnapshot?.documents else {
                 return
             }
-            self.user = documents.map { (queryDocumentSnapshot) in
+            self.users = documents.map { (queryDocumentSnapshot) in
                 let data = queryDocumentSnapshot.data()
+                let id = data["id"] as? String ?? ""
                 let displayName = data["displayName"] as? String ?? ""
                 let firstName = data["firstName"] as? String ?? ""
                 let lastName = data["lastName"] as? String ?? ""
                 let team = data["team"] as? String ?? ""
                 let totalPoints = data["totalPoints"] as? Int ?? 0
-                var user = User(firstName: firstName, lastName: lastName, displayName: displayName, totalPoints: totalPoints)
+                let email = data["email"] as? String ?? ""
+                var user = User(id: id, firstName: firstName, lastName: lastName, displayName: displayName, totalPoints: totalPoints, email: email)
                 user.team = team
                 return user
             }
         }
     }
     
-    func addData(firstName:String, lastName: String, displayName: String){
+    func addData(id: String, firstName:String, lastName: String, displayName: String, email: String, totalPoints: Int = 0){
         let ref: DocumentReference? = nil
-        let user = User(firstName: firstName, lastName: lastName, displayName: displayName, totalPoints: 0  )
-        db.collection("User").addDocument(data: user.userDict())
+        var user = User(id: id, firstName: firstName, lastName: lastName, displayName: displayName, totalPoints: totalPoints, email: email)
+        let doc = db.collection("User").addDocument(data: user.userDict())
         {
             err in
             if let err = err {
@@ -68,22 +74,52 @@ class UserViewModel: ObservableObject{
     }
     
     func getUser(userId:String){
-   
+
         let getUser = db.collection("User").document(userId)
         getUser.getDocument { (document, error) in
             if let document = document, document.exists {
+                let id = document.get("id") as? String ?? ""
                 let displayName = document.get("displayName") as? String ?? ""
                 let firstName = document.get("firstName") as? String ?? ""
                 let lastName = document.get("lastName") as? String ?? ""
                 let team = document.get("team") as? String ?? ""
                 let totalPoints = document.get("totalPoints") as? Int ?? 0
-                var user = User(firstName: firstName, lastName: lastName, displayName: displayName, totalPoints: totalPoints)
+                let email = document.get("email") as? String ?? ""
+                var user = User(id: id, firstName: firstName,
+                                lastName: lastName, displayName: displayName, totalPoints:
+                                    totalPoints, email: email)
                 user.team = team
                 self.currentUser = user
             } else {
                 print("Document does not exist")
             }
         }
+    }
+    func getUserFromEmail(email:String){
+        db.collection("User").whereField("email", isEqualTo:email )
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        print("\(document.documentID) => \(document.data())")
+                        let id  = document["id"] as? String ?? ""
+                        let displayName = document["displayName"] as? String ?? ""
+                        let firstName = document["firstName"] as? String ?? ""
+                        let lastName = document["firstName"] as? String ?? ""
+                        let email = document["email"] as? String ?? ""
+                        let team = document["team"] as? String ?? ""
+                        let totalPoints = document["totalPoints"] as? Int ?? 0
+                        self.currentUser = User(id: id, firstName: firstName,
+                                                lastName: lastName, displayName: displayName,
+                                                totalPoints: totalPoints, email: email)
+                        self.currentUserID = id
+                        self.currentUserEmail = email
+                        self.currentUserTeam  = team
+                    }
+                }
+        }
+        
     }
     
     func getTasksForCurrentUser(userId:String){
@@ -107,4 +143,6 @@ class UserViewModel: ObservableObject{
                 }
         }
     }
+
+    
 }

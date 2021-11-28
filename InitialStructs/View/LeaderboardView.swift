@@ -19,7 +19,7 @@ var width  = UIScreen.main.bounds.width
 var body: some View {
        NavigationView {
 //           Color.lighterGray
-           List(self.userViewModel.user.sorted(by: {$0.totalPoints > $1.totalPoints}),id: \.id) { eachUser in
+           List(self.userViewModel.users.sorted(by: {$0.totalPoints > $1.totalPoints}),id: \.id) { eachUser in
            HStack{
              Text(eachUser.displayName)
              Spacer()
