@@ -19,13 +19,14 @@ class UserTests: XCTestCase {
     }
 
     func testCreateInstance() {
-        let instance = User(firstName: "Andrew", lastName: "Butler", displayName: "Abutler", totalPoints: 200)
+        let instance = User(id: "asd", firstName: "Andrew", lastName: "Butler", displayName: "Abutler", totalPoints: 200,
+                            email: "m.talhasubzwari@gmail.com")
       XCTAssertNotNil(instance)
       XCTAssertEqual(instance.firstName, "Andrew")
       XCTAssertNotEqual(instance.displayName, "dave")
     }
     func testCreateDict() {
-      let instance = User(firstName: "Andrew", lastName: "Butler", displayName: "Abutler", totalPoints: 0)
+        let instance = User(id: "asd", firstName: "Andrew", lastName: "Butler", displayName: "Abutler", totalPoints: 200, email: "m.talhasubzwari@gmail.com")
       let dict = instance.userDict()
       XCTAssertNotNil(dict)
       XCTAssertEqual(dict["firstName"] as! String, "Andrew")

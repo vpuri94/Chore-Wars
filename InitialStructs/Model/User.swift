@@ -28,7 +28,7 @@ struct User {
     
     func userDict() ->[String: Any]{
         let dict: [String:Any] = [
-            "id": self.id,
+            "id": self.id ?? "",
             "displayName": self.displayName ?? "",
             "firstName": self.firstName ?? "",
             "lastName": self.lastName ?? "",

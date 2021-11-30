@@ -9,7 +9,7 @@ import SwiftUI
 import Firebase
 
 struct LogInView: View {
-    @ObservedObject private var user = UserViewModel()
+    @ObservedObject  var user: UserViewModel
     
     @State private var email: String = ""
     @State private var password: String = ""
@@ -19,44 +19,18 @@ struct LogInView: View {
     
     var body: some View {
         
+        
         let width  = UIScreen.main.bounds.width
         
-        var cat = "";
         
         
         NavigationView{
             VStack(spacing: 20){
                 Spacer()
-                
+            
                 // MARK: Google and Facebook Log in
-                VStack(alignment: .leading){
-                    Button(
-                        action:{
-                        cat = "String"
-                    },label:{
-                        Text("Connect With Facebook")
-                            .frame(width:width-100)
-                            .padding()
-                            .foregroundColor(.white)
-                    }).background(Color.facebookColor)
-                        .cornerRadius(10)
-                        .disabled(true)
-                    Button( action:{
-                        cat = "String"
-                    },label:{
-                        Text("Connect with Google")
-                            .frame(width:width-100)
-                            .padding()
-                            .foregroundColor(.white)
-                    }).background(Color.googleColor)
-                        .cornerRadius(10)
-                        .disabled(true)
-                }
-                HStack{
-                    VStack { Divider().padding(4)}
-                    Text("Or")
-                    VStack { Divider().padding(4)}
-                }
+                GoogleAndFacebook()
+                CenterDivider()
                 
                 // MARK: custom Log in
                 VStack(alignment: .center){
@@ -98,10 +72,12 @@ struct LogInView: View {
                                 self.shown.toggle()
                                 return
                             }
+                            user.getUserFromEmail(email: email)
                             self.msg = "Success"
                             self.shown.toggle()
                             user.signedIn.toggle()
-                            print(Auth.auth().currentUser?.uid)
+                           
+//                            print(Auth.auth().currentUser?.uid)
                         }
                     },label:{
                         Text("Sign In")
@@ -146,5 +122,50 @@ extension Color {
     static let facebookColor = Color(red: 51.0/255, green: 121/255, blue: 195/255)
     static let googleColor = Color(red: 240/255, green: 100/255, blue: 50/255)
     static let signIn = Color(red: 21/255, green: 57/255, blue: 80/255) // Darker than Facebook
+    static let CreateTeamColor = Color(red: 243/255, green: 184/255, blue: 82/255) // Darker than Facebook
     
+}
+
+struct GoogleAndFacebook: View{
+    
+//    let width  = UIScreen.main.bounds.width
+    var body: some View{
+        var cat = "";
+        let width  = UIScreen.main.bounds.width
+        VStack(alignment: .leading){
+            Button(
+                action:{
+                cat = "String"
+            },label:{
+                Text("Connect With Facebook")
+                    .frame(width:width-100)
+                    .padding()
+                    .foregroundColor(.white)
+            }).background(Color.facebookColor)
+                .cornerRadius(10)
+                .disabled(true)
+            Button( action:{
+                cat = "String"
+            },label:{
+                Text("Connect with Google")
+                    .frame(width:width-100)
+                    .padding()
+                    .foregroundColor(.white)
+            }).background(Color.googleColor)
+                .cornerRadius(10)
+                .disabled(true)
+        }
+        
+    }
+}
+
+struct CenterDivider: View{
+    var body: some View{
+        HStack{
+            VStack { Divider().padding(4)}
+            Text("Or")
+            VStack { Divider().padding(4)}
+        }
+        
+    }
 }

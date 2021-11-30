@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var loggedIn = UserViewModel().signedIn
+    @ObservedObject private var user = UserViewModel()
+//    @State private var loggedIn = true
 //    @EnvironmentObject var authentication: Authentication
     init() {
         let navBarAppearance = UINavigationBarAppearance()
@@ -21,15 +22,13 @@ struct ContentView: View {
         UINavigationBar.appearance().standardAppearance = appearance
     }
     var body: some View {
-        switch loggedIn{
+        switch user.signedIn {
         case true:
             TabViews()
         case false:
-            LogInView()
+            LogInView(user: user)
         }
-        
     }
-        
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -58,7 +57,7 @@ struct TabViews: View{
                 }
                 
             }
-            .padding()
+            
             .background(Color.white)
             .clipShape(Rectangle())
             .shadow(radius: 3)
