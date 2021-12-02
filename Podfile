@@ -10,8 +10,8 @@ target 'InitialStructs' do
   pod "Firebase/Database"
   pod "Firebase/Firestore"
   pod "Firebase/Auth"
-  pod "Firebase/Analytics"	
-
+  pod "Firebase/Analytics"
+  pod 'FirebaseUI/Google'
   pod 'FirebaseUI/OAuth' # Used for Sign in with Apple, Twitter, etc
 
   target 'InitialStructsTests' do
@@ -20,7 +20,7 @@ target 'InitialStructs' do
   end
 
 
-#  pod 'FirebaseUI/Google'
+
 #  pod 'FirebaseUI/Facebook'
 
   target 'InitialStructsUITests' do

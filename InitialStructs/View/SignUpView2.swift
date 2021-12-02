@@ -9,11 +9,12 @@ import SwiftUI
 import Firebase
 
 struct SignUpView2: View {
+    @ObservedObject  var user: UserViewModel
     @State private var displayName = ""
     @State private var firstName = ""
     @State private var lastName = ""
     @State private var avatar = ""
-    @State private var userId = Auth.auth().currentUser?.uid
+    @State private var authUser = AuthViewModel.authUser
     
     var body: some View {
         let width  = UIScreen.main.bounds.width
@@ -59,7 +60,15 @@ struct SignUpView2: View {
                     )
                     .padding(.top)
             Button( action:{
-                let cat  = "String"
+                if( firstName != "" && lastName != "" && displayName != "" && authUser!.email != ""){
+                    user.addData(id: authUser!.uid, firstName: firstName, lastName: lastName, displayName: displayName, email: authUser?.email ?? "")
+                }else{
+                    print(firstName)
+                    print(lastName)
+                    print(displayName)
+                    print(authUser!.uid)
+                    print(authUser!.email)
+                }
             },label:{
                 Text("Sign Up")
                     .frame(width:width-100)
@@ -74,8 +83,9 @@ struct SignUpView2: View {
     }
 }
 
-struct SignUpView2_Previews: PreviewProvider {
-    static var previews: some View {
-        SignUpView2()
-    }
-}
+//struct SignUpView2_Previews: PreviewProvider {
+//    @ObservedObject  var user: UserViewModel
+//    static var previews: some View {
+//        SignUpView2(user:user)
+//    }
+//}

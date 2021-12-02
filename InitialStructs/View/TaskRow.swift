@@ -10,14 +10,21 @@ import SwiftUI
 struct TaskRow: View{
     @State var task: Task
 //    let user = User(firstName: "Talha", lastName: "Subzwari" , displayName: "Copperbolt", totalPoints: 300)
-    let userId = "HkcEBsGUnrEXzNRFief1"
+    
+    @ObservedObject  var user: UserViewModel
     @ObservedObject private var taskViewModel = TaskViewModel()
-    @ObservedObject private var userViewModel = UserViewModel()
+//    @ObservedObject private var userViewModel = UserViewModel()
     var body: some View{
         
         HStack{
-            Text(task.getDate())
-            Text(task.name).padding()
+            HStack (alignment:.center) {
+                VStack (alignment:.leading){
+                    Text(task.name)
+                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    Spacer()
+                    Text("Due \(task.getDate())")
+                }.padding()
+            }
             Text(String(task.points)).padding()
 //            Text(String(task.getUserName()))
             Image(systemName: isClaimed() ? "checkmark" : "plus")
@@ -40,10 +47,10 @@ struct TaskRow: View{
     
      func claimAChore(){
         if(task.isNotClaimed()){
-            task.claimed = userId
+            task.claimed = user.currentUserID
             taskViewModel.updateData(taskId: task.id
-                                     , userID: userId)
-            userViewModel.updatePoints(userId: userId, points: task.points)
+                                     , userID: user.currentUserID)
+            user.updatePoints(userId: user.currentUserID, points: task.points)
         }
     }
     

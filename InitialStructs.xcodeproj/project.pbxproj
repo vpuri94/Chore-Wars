@@ -35,6 +35,7 @@
 		F6663C9727212EC2003427B9 /* AddNewChoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6663C9627212EC2003427B9 /* AddNewChoreView.swift */; };
 		F6663C992721D206003427B9 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6663C982721D206003427B9 /* Team.swift */; };
 		F6663C9B2721D277003427B9 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6663C9A2721D277003427B9 /* UserViewModel.swift */; };
+		F67BB30127574DD300843DCB /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67BB30027574DD300843DCB /* StartView.swift */; };
 		F6D7200F275371F40059E714 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D7200E275371F40059E714 /* SignUp.swift */; };
 		F6D72011275376E90059E714 /* SignUpView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D72010275376E90059E714 /* SignUpView2.swift */; };
 		F6D720152754A3A40059E714 /* CreateTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D720142754A3A40059E714 /* CreateTeamView.swift */; };
@@ -100,6 +101,7 @@
 		F6663C9627212EC2003427B9 /* AddNewChoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewChoreView.swift; sourceTree = "<group>"; };
 		F6663C982721D206003427B9 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		F6663C9A2721D277003427B9 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		F67BB30027574DD300843DCB /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		F6D7200E275371F40059E714 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		F6D72010275376E90059E714 /* SignUpView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView2.swift; sourceTree = "<group>"; };
 		F6D720142754A3A40059E714 /* CreateTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTeamView.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				F6D7200E275371F40059E714 /* SignUp.swift */,
 				F6D72010275376E90059E714 /* SignUpView2.swift */,
 				F6D720142754A3A40059E714 /* CreateTeamView.swift */,
+				F67BB30027574DD300843DCB /* StartView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				F6663C53271F3711003427B9 /* Frameworks */,
 				F6663C54271F3711003427B9 /* Resources */,
 				A8DE7E595A0718044FA93025 /* [CP] Embed Pods Frameworks */,
+				847DE91BE9F0ACEEA41D9DE6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -316,6 +320,7 @@
 				F6663C74271F3712003427B9 /* Frameworks */,
 				F6663C75271F3712003427B9 /* Resources */,
 				6B265ACB347E49001A008337 /* [CP] Embed Pods Frameworks */,
+				6611CF63A958E680F0E3B095 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -398,6 +403,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		6611CF63A958E680F0E3B095 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InitialStructs-InitialStructsUITests/Pods-InitialStructs-InitialStructsUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InitialStructs-InitialStructsUITests/Pods-InitialStructs-InitialStructsUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-InitialStructs-InitialStructsUITests/Pods-InitialStructs-InitialStructsUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6B265ACB347E49001A008337 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -413,6 +435,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-InitialStructs-InitialStructsUITests/Pods-InitialStructs-InitialStructsUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		847DE91BE9F0ACEEA41D9DE6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InitialStructs/Pods-InitialStructs-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InitialStructs/Pods-InitialStructs-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-InitialStructs/Pods-InitialStructs-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A8DE7E595A0718044FA93025 /* [CP] Embed Pods Frameworks */ = {
@@ -513,6 +552,7 @@
 				F6663C9727212EC2003427B9 /* AddNewChoreView.swift in Sources */,
 				F6092F9027358E7C000A39D0 /* DashboardView.swift in Sources */,
 				F61AEB6B275082FA005BC56F /* AuthViewModel.swift in Sources */,
+				F67BB30127574DD300843DCB /* StartView.swift in Sources */,
 				F618C9ED274D431900350695 /* LogInView.swift in Sources */,
 				F6D72011275376E90059E714 /* SignUpView2.swift in Sources */,
 				F6663C8B271F378F003427B9 /* Task.swift in Sources */,

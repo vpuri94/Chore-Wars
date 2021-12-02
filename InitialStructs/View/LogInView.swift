@@ -8,6 +8,7 @@
 import SwiftUI
 import Firebase
 
+
 struct LogInView: View {
     @ObservedObject  var user: UserViewModel
     
@@ -76,8 +77,6 @@ struct LogInView: View {
                             self.msg = "Success"
                             self.shown.toggle()
                             user.signedIn.toggle()
-                           
-//                            print(Auth.auth().currentUser?.uid)
                         }
                     },label:{
                         Text("Sign In")
@@ -95,9 +94,6 @@ struct LogInView: View {
                 .alert(isPresented: $shown){
                     return Alert(title: Text(self.msg))
                     
-                }
-                HStack{
-                    Text(String(user.signedIn))
                 }
                 Spacer()
                 Divider()
@@ -127,6 +123,7 @@ extension Color {
 }
 
 struct GoogleAndFacebook: View{
+//    GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
     
 //    let width  = UIScreen.main.bounds.width
     var body: some View{

@@ -10,6 +10,7 @@ import FirebaseFirestore
 
 class TaskViewModel: ObservableObject{
     @Published var tasks = [Task]()
+    @Published var incompleteTasks = [Task]()
     private var db = Firestore.firestore()
     
     
@@ -27,7 +28,9 @@ class TaskViewModel: ObservableObject{
                 let dueDate = data["dueDate"] as? Date ?? NSDate.now
                 let claimed = data["claimed"] as? String ?? ""
                 let category = data["category"] as? String ?? ""
-                let task  = Task(id: id, name: name, points: points, dueDate: dueDate, claimed: claimed, category: category )
+                let completed = data["completed"] as? Bool ?? false
+                var task  = Task(id: id, name: name, points: points, dueDate: dueDate, claimed: claimed, category: category )
+                task.completed = completed
                 return task
             }
         }
@@ -46,5 +49,6 @@ class TaskViewModel: ObservableObject{
         let id = db.collection("Task").document(taskId).documentID
         db.collection("Task").document(id).updateData(["claimed": userID])
     }
+
 }
 

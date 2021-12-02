@@ -15,7 +15,7 @@ struct Task: Identifiable{
     let name: String;
     let points: Int;
     let dueDate: Date;
-    let completed: Bool = false;
+    var completed: Bool = false;
     let reviewed: Bool = false;
     let review: Int = 0;
     let category: String;
@@ -69,6 +69,10 @@ struct Task: Identifiable{
     }
     func isCompleted() -> Bool {
         return self.completed
+        
+    }
+    func isNotCompleted() -> Bool {
+        return !self.completed
         
     }
     

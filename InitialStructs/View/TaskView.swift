@@ -10,7 +10,7 @@ import SwiftUI
 
 
 struct TaskView: View {
-
+    @ObservedObject  var user: UserViewModel
     @State private var selection: String? = "A"
     @ObservedObject private var taskViewModel = TaskViewModel()
     
@@ -49,10 +49,14 @@ struct TaskView: View {
                             }
                         }
                     }
+                    HStack(alignment: .center, spacing: 20){
+                        Text(" Claimed ")
+                        Text(" Unclaimed ")
+                    }
                     //MARK: Task section.
                         VStack{
                             List(taskViewModel.tasks,id: \.id){ task in
-                              TaskRow(task: task)
+                                TaskRow(task: task, user: user)
                                 
                             }
                         }
@@ -61,6 +65,7 @@ struct TaskView: View {
                 .navigationBarTitleDisplayMode(.inline)
                  .onAppear(){
                         self.taskViewModel.fetchData()
+                        
                 }
                 
             }
@@ -72,9 +77,9 @@ struct TaskView: View {
     
     
 
-
-struct TaskView_Previews: PreviewProvider {
-    static var previews: some View {
-        TaskView()
-    }
-}
+//
+//struct TaskView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TaskView()
+//    }
+//}

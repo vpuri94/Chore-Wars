@@ -7,27 +7,30 @@
 
 import SwiftUI
 import Firebase
+//import XCTest
 
 struct SignUp: View {
-    
+    @ObservedObject  var user: UserViewModel
     var body: some View {
         VStack{
             Spacer()
             GoogleAndFacebook()
             CenterDivider()
-            EmailAndPassword()
+            EmailAndPassword(user:user)
             Spacer()
         }
     }
 }
-
-struct SignUp_Previews: PreviewProvider {
-    static var previews: some View {
-        SignUp()
-    }
-}
+//
+//struct SignUp_Previews: PreviewProvider {
+//    @ObservedObject  var user: UserViewModel
+//    static var previews: some View {
+//        SignUp(user: user)
+//    }
+//}
 
 struct EmailAndPassword: View{
+    @ObservedObject  var user: UserViewModel
     @State private var email = ""
     @State private var password = ""
     @State private var rePassword = ""
@@ -87,15 +90,19 @@ struct EmailAndPassword: View{
                 }
                 Auth.auth().createUser(withEmail:email , password: password){ (res, err) in
                     if (err != nil){
+                        
                         print(err!.localizedDescription )
                         self.message = err!.localizedDescription
                         self.shown.toggle()
                         return
                     }
+                    
                     self.message = "Success"
                     self.shown.toggle()
-//                    user.signedIn.toggle()
-                    print(Auth.auth().currentUser?.uid)
+                    user.currentUserEmail = email
+                    AuthViewModel.authUser = Auth.auth().currentUser
+                    user.currentUserID = Auth.auth().tenantID ?? ""
+                    
                 }
             },label:{
                 Text("Sign Up")
@@ -108,13 +115,13 @@ struct EmailAndPassword: View{
                 .cornerRadius(10)
 
         }.autocapitalization(.none)
-//                    .textFieldStyle(RoundedBorderTextFieldStyle())
-    
         .alert(isPresented: $shown){
             return Alert(title: Text(self.message))
-            
         }
-            
-            
+        if(self.message == "Success"){
+            NavigationLink(destination: SignUpView2(user:user)) {
+                SignUpView2(user:user)
+            }
         }
     }
+}

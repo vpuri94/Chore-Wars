@@ -16,6 +16,7 @@ class UserViewModel: ObservableObject{
     @Published var users = [User]()
     @Published var currentUser: User? = nil
     @Published var currentUserTasks = [Task]()
+    @Published var incompleteTasksForCurrentUser = [Task]()
     @Published var currentUserID = ""
     @Published var currentUserEmail = ""
     @Published var currentUserTeam = ""
@@ -47,17 +48,8 @@ class UserViewModel: ObservableObject{
     }
     
     func addData(id: String, firstName:String, lastName: String, displayName: String, email: String, totalPoints: Int = 0){
-        let ref: DocumentReference? = nil
-        var user = User(id: id, firstName: firstName, lastName: lastName, displayName: displayName, totalPoints: totalPoints, email: email)
-        let doc = db.collection("User").addDocument(data: user.userDict())
-        {
-            err in
-            if let err = err {
-                print("Error adding document: \(err)")
-            } else {
-                print("Document added with ID: \(ref!.documentID )")
-            }
-        }
+        let user = User(id: id, firstName: firstName, lastName: lastName, displayName: displayName, totalPoints: totalPoints, email: email)
+        db.collection("User").addDocument(data: user.userDict())
     }
     func updatePoints(userId:String,points:Int){
         let user = db.collection("User").document(userId)
@@ -145,6 +137,9 @@ class UserViewModel: ObservableObject{
                     }
                 }
         }
+    }
+    func incompleteTasks(){
+       incompleteTasksForCurrentUser = currentUserTasks.filter{ $0.isNotCompleted() }
     }
 
     

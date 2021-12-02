@@ -24,9 +24,9 @@ struct ContentView: View {
     var body: some View {
         switch user.signedIn {
         case true:
-            TabViews()
+            TabViews(user: user)
         case false:
-            LogInView(user: user)
+            StartView(user: user)
         }
     }
 }
@@ -38,9 +38,10 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct TabViews: View{
+    @ObservedObject  var user: UserViewModel
     var body: some View{
         TabView {
-                DashboardView().tabItem {
+            DashboardView(user: user).tabItem {
                     Image( "dashboard-icon")
                 }
                 LeaderboardView().tabItem{
@@ -49,10 +50,10 @@ struct TabViews: View{
                 AddNewChoreView().tabItem{
                     Image( "add-icon")
                 }
-                TaskView().tabItem{
+            TaskView(user:user).tabItem{
                     Image("chores-icon")
                 }
-                TaskView().tabItem{
+            TaskView(user:user).tabItem{
                     Image("reviews-icon")
                 }
                 
