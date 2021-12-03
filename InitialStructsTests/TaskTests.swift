@@ -26,8 +26,8 @@ class TaskTests: XCTestCase {
     @available(iOS 15, *)
     func testExample() throws {
         
-        let task  = Task(id: "TestID", name: "Cleaning", points: 200, dueDate: Date.now, claimed: "", category: "Indoor Cleaning")
-        let task1  = Task(id: "TestID", name: "Cleaning", points: 200, dueDate: Date.now, claimed: "User1", category: "Indoor Cleaning")
+        let task  = Task(id: "TestID", name: "Cleaning", points: 200, dueDate: Date(), claimed: "", category: "Indoor Cleaning", teamName: "dsdf")
+        let task1  = Task(id: "TestID", name: "Cleaning", points: 200, dueDate: Date(), claimed: "User1", category: "Indoor Cleaning", teamName: "dsafe")
         let dict = task.taskDict()
 //        print(tasks)
         
@@ -38,7 +38,7 @@ class TaskTests: XCTestCase {
         XCTAssertEqual(task.name,"Cleaning")
         XCTAssertEqual(task.points, 200)
         XCTAssertEqual(task.claimed, "")
-        XCTAssertEqual(task.getDate(), "05/11/2021")
+        XCTAssertEqual(task.getDate(), "12/03/2021")
         XCTAssertEqual(task.isClaimed(), false)
         XCTAssertEqual(task.isNotClaimed(), true)
         XCTAssertEqual(dict["name"] as! String, "Cleaning")
@@ -49,6 +49,8 @@ class TaskTests: XCTestCase {
         
         XCTAssertEqual(task1.isClaimed(), true)
         XCTAssertEqual(task1.isNotClaimed(), false)
+        XCTAssertEqual(task1.isCompleted(), false)
+        XCTAssertEqual(task1.isNotCompleted(), true)
     }
 
     func testPerformanceExample() throws {

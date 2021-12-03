@@ -8,9 +8,10 @@
 import Foundation
 
 
-import Foundation
+import Firebase
 import FirebaseFirestore
 import SwiftUI
+import UserNotifications
 
 class UserViewModel: ObservableObject{
     @Published var users = [User]()
@@ -41,16 +42,25 @@ class UserViewModel: ObservableObject{
                 let team = data["team"] as? String ?? ""
                 let totalPoints = data["totalPoints"] as? Int ?? 0
                 let email = data["email"] as? String ?? ""
-                var user = User(id: id, firstName: firstName, lastName: lastName, displayName: displayName, totalPoints: totalPoints, email: email)
+                let token = data["token"] as? String ?? ""
+                var user = User(id: id, firstName: firstName, lastName: lastName, displayName: displayName, totalPoints: totalPoints, email: email, token: token)
                 user.team = team
                 return user
             }
         }
     }
     
-    func addData(id: String, firstName:String, lastName: String, displayName: String, email: String, totalPoints: Int = 0){
-        let user = User(id: id, firstName: firstName, lastName: lastName, displayName: displayName, totalPoints: totalPoints, email: email)
-        let doc = db.collection("User").addDocument(data: user.userDict())
+    func addData(id: String, firstName:String, lastName: String, displayName: String, email: String, totalPoints: Int = 0){        
+        var fcmToken = Messaging.messaging().fcmToken
+            Messaging.messaging().token { token, error in
+            if let error = error{
+                //nothing
+            } else if let token = token{
+                fcmToken = token
+            }
+        }
+        let user = User(id: id, firstName: firstName, lastName: lastName, displayName: displayName, totalPoints: totalPoints, email: email, token: fcmToken ?? "")
+        db.collection("User").addDocument(data: user.userDict())
         db.collection("User").document(doc.documentID).updateData(["id": doc.documentID])
         currentUserID = doc.documentID
     }
@@ -82,9 +92,10 @@ class UserViewModel: ObservableObject{
                 let team = document.get("team") as? String ?? ""
                 let totalPoints = document.get("totalPoints") as? Int ?? 0
                 let email = document.get("email") as? String ?? ""
+                let token = document.get("token") as? String ?? ""
                 var user = User(id: id, firstName: firstName,
                                 lastName: lastName, displayName: displayName, totalPoints:
-                                    totalPoints, email: email)
+                                    totalPoints, email: email, token: token)
                 user.team = team
                 self.currentUser = user
             } else {
@@ -109,10 +120,11 @@ class UserViewModel: ObservableObject{
                         let email = document["email"] as? String ?? ""
                         let team = document["team"] as? String ?? ""
                         let totalPoints = document["totalPoints"] as? Int ?? 0
+                        let token = document.get("token") as? String ?? ""
                         self.currentUser = User(id: id, firstName: firstName,
                                                 lastName: lastName, displayName: displayName,
-                                                totalPoints: totalPoints, email: email)
-            
+                                                totalPoints: totalPoints, email: email, token: token)
+                        self.currentUserEmail = email
                         self.currentUserID = id
                         self.currentUserTeam  = team
                         print("here")
@@ -137,7 +149,9 @@ class UserViewModel: ObservableObject{
                         let points = document["points"] as? Int ?? 0
                         let dueDate = document["dueDate"] as? Date ?? NSDate.now
                         let category = document["category"] as? String ?? ""
-                        let newTask = Task(id: id, name: name, points: points, dueDate: dueDate, claimed: self.currentUserID, category: category)
+                        let team = document["team"] as? String ?? ""
+
+                        let newTask = Task(id: id, name: name, points: points, dueDate: dueDate, claimed: self.currentUserID, category: category, teamName: team)
                         self.currentUserTasks.append(newTask)
                     }
                 }
@@ -168,6 +182,27 @@ class UserViewModel: ObservableObject{
     
     func incompleteTasks(){
        incompleteTasksForCurrentUser = currentUserTasks.filter{ $0.isNotCompleted() }
+    }
+    
+    func getTeamFromUser(){
+        AuthViewModel.currentTeam = Team()
+        db.collection("Team").whereField("team", isEqualTo: currentUserTeam )
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+//                        print("\(document.documentID) => \(document.data())")
+                        AuthViewModel.currentTeam?.id  = document["id"] as? String ?? ""
+                        AuthViewModel.currentTeam?.teamName = document["name"] as? String ?? ""
+                        AuthViewModel.currentTeam?.joinCode = document["code"] as? String ?? ""
+                        AuthViewModel.currentTeam?.currentReward = document["crntReward"] as? String ?? ""
+                        AuthViewModel.currentTeam?.currentPunishment = document["crntPunishment"] as? String ?? ""
+                        AuthViewModel.currentTeam?.lastRoundWinner = document["lastRoundWinner"] as? String ?? ""
+                        AuthViewModel.currentTeam?.lastRoundLoser = document["lastRoundLooser"] as? String ?? ""
+                    }
+                }
+        }
     }
     
 }

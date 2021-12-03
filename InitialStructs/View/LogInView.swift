@@ -74,6 +74,7 @@ struct LogInView: View {
                                 return
                             }
                             user.getUserFromEmail(email: email)
+                            user.getTeamFromUser()
                             self.msg = "Success"
                             self.shown.toggle()
                             user.signedIn.toggle()

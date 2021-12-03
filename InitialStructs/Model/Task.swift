@@ -20,15 +20,16 @@ struct Task: Identifiable{
     let review: Int = 0;
     let category: String;
     var claimed: String? = ""; // user ID later on
-    var team: Team? = nil;
+    var team: String = "";
     
-    init(id: String = "", name: String,points: Int,dueDate: Date, claimed: String = "", category: String) {
+    init(id: String = "", name: String,points: Int,dueDate: Date, claimed: String = "", category: String, teamName: String) {
         self.id = id
         self.name = name
         self.points  = points
         self.dueDate = dueDate
         self.claimed = claimed
         self.category = category
+        self.team = teamName
     }
     
     func taskDict() ->[String: Any]{
@@ -49,7 +50,7 @@ struct Task: Identifiable{
     func getDate()-> String {
         print(dueDate)
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
+        dateFormatter.dateFormat = "MM/dd/yyyy"
         print(dateFormatter.string(from: dueDate))
         return (dateFormatter.string(from: dueDate))
     }

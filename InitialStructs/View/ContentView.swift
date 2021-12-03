@@ -47,7 +47,7 @@ struct TabViews: View{
                 LeaderboardView().tabItem{
                     Image( "leaderboard-icon")
                 }
-                AddNewChoreView().tabItem{
+            AddNewChoreView(user: user).tabItem{
                     Image( "add-icon")
                 }
             TaskView(user:user).tabItem{

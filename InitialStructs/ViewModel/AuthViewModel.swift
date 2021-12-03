@@ -13,7 +13,10 @@
 import FirebaseAuth
 class AuthViewModel {
     static var authUser:FirebaseAuth.User? = nil
-    @Published var SignedUp: Bool = false
+
+    static var currentTeam: Team? = nil
+    static var teamCode: String? = ""
+
     
 }
 //

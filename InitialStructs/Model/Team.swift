@@ -9,28 +9,20 @@ import Foundation
 
 struct Team {
     var id: String = UUID().uuidString
-    var joinCode: String;
-    var teamName: String;
+    var joinCode: String = ""
+    var teamName: String = ""
+    var lastRoundWinner: String = ""
+    var lastRoundLoser: String = ""
     var currentReward: String = ""
     var currentPunishment: String = ""
-    var lastRoundWinner: String = ""
-    var lastRoundLooser: String = ""
     
-    init(teamName: String, joinCode: String){
-        self.teamName = teamName
-        self.joinCode = joinCode
+    mutating func setCurrentPunishment(newPunishment: String){
+        currentPunishment = newPunishment
+        
     }
-    
-    func teamDict() ->[String: Any]{
-        let dict: [String:Any] = [
-            "id": self.id ,
-            "teamName": self.teamName,
-            "code": self.joinCode,
-            "currentReward": self.currentReward,
-            "currentPunishment ": self.currentPunishment as Any,
-            "lastRoundWinner": self.lastRoundWinner as Any,
-            "lastRoundLooser": self.lastRoundLooser,
-            ]
-        return dict
+    mutating func setCurrentReward(newReward: String){
+        currentReward = newReward
+        
+
     }
 }
