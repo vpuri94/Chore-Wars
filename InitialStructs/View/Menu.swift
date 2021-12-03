@@ -13,11 +13,15 @@ var db = Firestore.firestore()
 struct Menu: View {
     @ObservedObject private var taskViewModel = TaskViewModel()
     @ObservedObject  var user: UserViewModel
+    @State var tag = 0
     var body: some View {
             NavigationView {
+                if (tag == 1){
+                    UserProfileView(user:user)
+                }else{
                     VStack{
                         Button(action: {
-                            print("Account tapped!")
+                            tag = 1
                         }) {
                             HStack {
                                 Image(systemName: "person.crop.circle")
@@ -67,6 +71,7 @@ struct Menu: View {
                  .onAppear(){
                         self.taskViewModel.fetchData()
                         
+                }
                 }
                 
             }

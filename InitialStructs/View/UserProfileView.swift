@@ -10,17 +10,18 @@ import SwiftUI
 struct UserProfileView: View {
     @ObservedObject var user: UserViewModel
     var body: some View {
-        NavigationView{
         VStack{
             ScoreCardView(user:user)
             List(self.user.AllUserTasks, id: \.id) {eachTask in
-                ChoreRow(task: eachTask)
+                CompletedChoreRow(task: eachTask)
             }
             
         }
-        .navigationBarTitle("Dashboard", displayMode: .inline)
+        .onAppear(perform: {
+            self.user.getAllTasksForCurrentUser()
+        })
+        .navigationBarTitle("User Profile", displayMode: .inline)
 
     }
     }
-}
 

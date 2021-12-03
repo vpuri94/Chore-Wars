@@ -15,6 +15,7 @@ import UserNotifications
 
 class UserViewModel: ObservableObject{
     @Published var users = [User]()
+    @Published var teamUsers = [User]()
     @Published var currentUser: User? = nil
     @Published var currentUserTasks = [Task]()
     @Published var AllUserTasks = [Task]()
@@ -45,6 +46,36 @@ class UserViewModel: ObservableObject{
                 let token = data["token"] as? String ?? ""
                 var user = User(id: id, firstName: firstName, lastName: lastName, displayName: displayName, totalPoints: totalPoints, email: email, token: token)
                 user.team = team
+                self.currentUserTeam = team
+                return user
+            }
+        }
+    }
+    func fetchTeamData(){
+        print(currentUser?.team ?? "Not Found")
+        if (currentUserTeam == ""){
+            print("nil")
+        }else{
+            print(currentUserTeam )
+        }
+        
+        db.collection("User").whereField("team", isEqualTo: currentUserTeam).addSnapshotListener{ (querySnapshot, error) in
+            guard let documents = querySnapshot?.documents else {
+                return
+            }
+            self.teamUsers = documents.map { (queryDocumentSnapshot) in
+                let data = queryDocumentSnapshot.data()
+                let id = data["id"] as? String ?? ""
+                let displayName = data["displayName"] as? String ?? ""
+                let firstName = data["firstName"] as? String ?? ""
+                let lastName = data["lastName"] as? String ?? ""
+                let team = data["team"] as? String ?? ""
+                let totalPoints = data["totalPoints"] as? Int ?? 0
+                let email = data["email"] as? String ?? ""
+                let token = data["token"] as? String ?? ""
+                var user = User(id: id, firstName: firstName, lastName: lastName, displayName: displayName, totalPoints: totalPoints, email: email, token: token)
+                user.team = team
+                self.currentUserTeam = AuthViewModel.currentTeam?.teamName ?? ""
                 return user
             }
         }
@@ -137,7 +168,7 @@ class UserViewModel: ObservableObject{
     func getTasksForCurrentUser(userId: String){
         currentUserTasks = [Task]()
         
-        db.collection("Task").whereField("claimed", isEqualTo: userId)
+        db.collection("Task").whereField("claimed", isEqualTo: userId).whereField("completed", isEqualTo: false)
             .getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
@@ -161,7 +192,7 @@ class UserViewModel: ObservableObject{
     func getAllTasksForCurrentUser(){
         AllUserTasks = [Task]()
         
-        db.collection("Task").whereField("claimed", isEqualTo: currentUserID).whereField("completed", isEqualTo: false)
+        db.collection("Task").whereField("claimed", isEqualTo: currentUserID).whereField("completed", isEqualTo: true)
             .getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")

@@ -11,14 +11,16 @@ import SwiftUI
 struct LeaderboardView: View {
 
 @State private var selection: String? = "A"
-@ObservedObject private var taskViewModel = TaskViewModel()
-@ObservedObject private var userViewModel = UserViewModel();
+//@ObservedObject private var taskViewModel = TaskViewModel()
+@ObservedObject private var userViewModel = UserViewModel()
 
 var width  = UIScreen.main.bounds.width
 @State var rank: Int = 1
 var body: some View {
        NavigationView {
 //           Color.lighterGray
+           VStack{
+               Text(userViewModel.currentUserTeam)
            List(self.userViewModel.users.sorted(by: {$0.totalPoints > $1.totalPoints}),id: \.id) { eachUser in
            HStack{
              Text(eachUser.displayName)
@@ -27,11 +29,12 @@ var body: some View {
            }
 
          }
+           }
            .navigationBarTitle("Leaderboard").font(.custom("Montserrat", size: 20))
            .navigationBarTitleDisplayMode(.inline)
            .onAppear(){
-                  self.taskViewModel.fetchData()
                   self.userViewModel.fetchData()
+
           }
        }
     }

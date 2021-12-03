@@ -42,6 +42,7 @@
 		F6D72011275376E90059E714 /* SignUpView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D72010275376E90059E714 /* SignUpView2.swift */; };
 		F6D720152754A3A40059E714 /* CreateTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D720142754A3A40059E714 /* CreateTeamView.swift */; };
 		F6EB004E275AA2D300A5207C /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EB004D275AA2D300A5207C /* UserProfileView.swift */; };
+		F6EB0052275ABE0C00A5207C /* CompleteChoreRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EB0051275ABE0C00A5207C /* CompleteChoreRow.swift */; };
 		F6FC0A0C2730C34A0046E3C8 /* TaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FC0A0B2730C34A0046E3C8 /* TaskRow.swift */; };
 		FCA5D46AFBAF3A73AD667596 /* Pods_InitialStructsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54FD79BA087A6CB816BE3ECE /* Pods_InitialStructsTests.framework */; };
 /* End PBXBuildFile section */
@@ -111,6 +112,7 @@
 		F6D72010275376E90059E714 /* SignUpView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView2.swift; sourceTree = "<group>"; };
 		F6D720142754A3A40059E714 /* CreateTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTeamView.swift; sourceTree = "<group>"; };
 		F6EB004D275AA2D300A5207C /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		F6EB0051275ABE0C00A5207C /* CompleteChoreRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteChoreRow.swift; sourceTree = "<group>"; };
 		F6FC0A0B2730C34A0046E3C8 /* TaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRow.swift; sourceTree = "<group>"; };
 		F92CF8A92A9D22546F336F22 /* Pods_InitialStructs_InitialStructsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InitialStructs_InitialStructsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -264,6 +266,7 @@
 				F67BB30027574DD300843DCB /* StartView.swift */,
 				F6EB004D275AA2D300A5207C /* UserProfileView.swift */,
 				5BEE53F92759AC7F005B95FF /* Menu.swift */,
+				F6EB0051275ABE0C00A5207C /* CompleteChoreRow.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -558,6 +561,7 @@
 				F6092F9327358E7C000A39D0 /* CheckBoxView.swift in Sources */,
 				F6092F9427358E7C000A39D0 /* ChoreRow.swift in Sources */,
 				F6D720152754A3A40059E714 /* CreateTeamView.swift in Sources */,
+				F6EB0052275ABE0C00A5207C /* CompleteChoreRow.swift in Sources */,
 				F6092F9227358E7C000A39D0 /* ScoreCardView.swift in Sources */,
 				F6663C9727212EC2003427B9 /* AddNewChoreView.swift in Sources */,
 				F61AEB6B275082FA005BC56F /* AuthViewModel.swift in Sources */,

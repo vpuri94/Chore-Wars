@@ -51,6 +51,11 @@ class TaskViewModel: ObservableObject{
         let id = db.collection("Task").document(taskId).documentID
         db.collection("Task").document(id).updateData(["claimed": userID])
     }
+    func completeTask(taskId: String) {
+        let id = db.collection("Task").document(taskId).documentID
+        db.collection("Task").document(id).updateData(["completed": true])
+    }
+
 
 }
 

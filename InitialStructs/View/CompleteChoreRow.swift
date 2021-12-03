@@ -1,16 +1,15 @@
 //
-//  ChoreRow.swift
-//  dashboard
+//  CompleteChoreRow.swift
+//  InitialStructs
 //
-//  Created by Sihan Wu on 11/5/21.
+//  Created by M.Talha  Subzwari on 12/3/21.
 //
 
 import SwiftUI
 
-struct ChoreRow: View {
+struct CompletedChoreRow: View {
     @State var task : Task
-    @State var taskViewModel = TaskViewModel()
-//    @State var user = UserViewModel()
+
     @State private var checked = true
     var body: some View {
 //    List(self.user.currentUserTasks, id: \.id) { eachTask in
@@ -23,21 +22,14 @@ struct ChoreRow: View {
             }.padding()
             Spacer()
             VStack{
-                Image(systemName: task.isCompleted() ? "checkmark" : "plus")
-                    .foregroundColor(Color.secondary)
-                            .onTapGesture {
-                                taskViewModel.completeTask(taskId: task.id)
-                                task.completed = true
-                            }
+                Image(systemName: "checkmark" )
+                .foregroundColor(Color.secondary)
+            
                 Text("Completed")
                 Spacer()
                 Text(String(task.points))
-                
             }
         }
     }
-//    .onAppear(){
-//        self.user.getTasksForCurrentUser(userId: "HkcEBsGUnrEXzNRFief1")
-//    }
-}
 
+}
