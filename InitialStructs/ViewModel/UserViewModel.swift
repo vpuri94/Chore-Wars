@@ -132,7 +132,9 @@ class UserViewModel: ObservableObject{
                         let points = document["points"] as? Int ?? 0
                         let dueDate = document["dueDate"] as? Date ?? NSDate.now
                         let category = document["category"] as? String ?? ""
-                        let newTask = Task(id: id, name: name, points: points, dueDate: dueDate, claimed: self.currentUserID, category: category)
+                        let team = document["team"] as? String ?? ""
+
+                        let newTask = Task(id: id, name: name, points: points, dueDate: dueDate, claimed: self.currentUserID, category: category, teamName: team)
                         self.currentUserTasks.append(newTask)
                     }
                 }

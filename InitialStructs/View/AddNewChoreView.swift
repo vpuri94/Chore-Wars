@@ -17,6 +17,7 @@ struct AddNewChoreView: View {
     @State private var points: String = ""
     @State private var dueDate = Date()
     @State private var startDate = Date()
+    @ObservedObject  var user: UserViewModel
     var width  = UIScreen.main.bounds.width
     var height = UIScreen.main.bounds.height
     var categories = ["Outdoor","Cleaning","Shopping"]
@@ -82,7 +83,7 @@ struct AddNewChoreView: View {
                     }).disabled(true)
                
                     Button(action:{
-                        self.taskViewModel.addData(name: name,points: points,dueDate: dueDate, category: cat)
+                        self.taskViewModel.addData(name: name,points: points,dueDate: dueDate, category: cat, teamName: user.currentUserTeam)
                     }, label:{
                         Text("Add Chore")
                             .padding()

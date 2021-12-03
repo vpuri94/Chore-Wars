@@ -44,7 +44,7 @@ struct Menu: View {
                             .cornerRadius(40)
                         }
                         Button(action: {
-                            print("Reset tapped!")
+                            print(user.currentUserTeam)
                         }) {
                             HStack {
                                 Image(systemName: "arrow.clockwise")
@@ -68,6 +68,7 @@ struct Menu: View {
                 
             }
     }
+    /*
     func claimAChore(){
         
         
@@ -78,6 +79,9 @@ struct Menu: View {
            user.updatePoints(userId: user.currentUserID, points: task.points)
        }
    }
+ */
+   
+    
 }
 
 /*
