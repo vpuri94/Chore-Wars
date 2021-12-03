@@ -128,9 +128,32 @@ struct Menu: View {
                 }
         }
         //call the random func
-        AuthViewModel.currentTeam?.currentReward = rewards.randomElement() ?? "All team members must buy winner dinner. "
-        AuthViewModel.currentTeam?.currentPunishment = punishments.randomElement() ?? "Loser must clean winners room"
-        
+        let randomReward = rewards.randomElement()
+        let randomPunishment = punishments.randomElement()
+        AuthViewModel.currentTeam?.currentReward = randomReward ?? "All team members must buy winner dinner. "
+        AuthViewModel.currentTeam?.currentPunishment = randomPunishment ?? "Loser must clean winners room"
+        db.collection("Team").whereField("code", isEqualTo: user.currentUserTeam)
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    
+                    for document in querySnapshot!.documents {
+                        
+                        db.collection("Team").document(document.documentID).setData([
+                            "currentPunishment" : randomPunishment,
+                            "currentReward" : randomReward
+                        ], merge: true) { err in
+                            if let err = err {
+                                print("Error removing document: \(err)")
+                            }
+                        }
+                        
+                    }
+                    
+                }
+                
+        }
         
     }
     
