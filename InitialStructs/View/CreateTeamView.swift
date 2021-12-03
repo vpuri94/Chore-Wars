@@ -10,6 +10,7 @@ import Firebase
 
 struct CreateTeamView: View {
     @ObservedObject  var user: UserViewModel
+//    @ObservedObject var SignedUp = AuthViewModel()
     @State private var teamName: String = ""
     @State private var findTeam: String = ""
     @State private var message = ""
@@ -19,9 +20,9 @@ struct CreateTeamView: View {
     
     var body: some View {
         let width  = UIScreen.main.bounds.width
-        if TeamViewModel().found{
+        if found{
             LogInView(user:user)
-        }
+        }else{
         TextField(
             "First Name",
             text: $teamName
@@ -39,8 +40,9 @@ struct CreateTeamView: View {
                 self.message = "Team Name cant be null "
                 self.shown.toggle()
             }
-            TeamViewModel().addData(teamName: teamName, joinCode: joinCode)
-            TeamViewModel().found.toggle()
+            addData(teamName: teamName, joinCode: joinCode)
+            findTeamInFirebase(joinCode: joinCode)
+            found = true
             
         },label:{
             Text("Create a Team")
@@ -73,19 +75,16 @@ struct CreateTeamView: View {
                 self.shown.toggle()
                 return
             }
-            TeamViewModel().findTeamInFirebase(joinCode: findTeam)
-            if(!TeamViewModel().found){
+            findTeamInFirebase(joinCode: findTeam)
+            
+            if(found == false){
                 self.message = "Team not found"
                 self.shown.toggle()
             }
-            else{
+            if(found == true){
                 self.message = "Team Found"
-                self.shown.toggle()
+//                self.shown.toggle()
             }
-            
-//            let joinCode = randomString(length: 6)
-//            TeamViewModel().addData(teamName: teamName, joinCode: joinCode)
-            
         },label:{
             Text("Join a Team")
                 .frame(width:width-100)
@@ -98,10 +97,12 @@ struct CreateTeamView: View {
             .alert(isPresented: $shown){
                 return Alert(title: Text(self.message))
             }
+        }
         
     }
+        
     func randomString(length: Int) -> String {
-      let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+      let letters = "abcdefghijklmnopqrstuvw012xyz345DEFGHIJKLMABCDEFGHIJKLMNOPQRSTUVWXYZ0126789"
       return String((0..<length).map{ _ in letters.randomElement()! })
     }
     func addData(teamName: String, joinCode:String){
@@ -120,7 +121,7 @@ struct CreateTeamView: View {
                             } else {
                                 for document in querySnapshot!.documents {
                                     db.collection("User").document(document.documentID).updateData(["team": joinCode ])
-                                    found.toggle()
+                                    found = true
                                 }
                             }
                             
@@ -135,35 +136,35 @@ struct CreateTeamView: View {
 //    }
 //}
 
-struct TeamViewModel{
-    @State fileprivate var found = false
-    private var db = Firestore.firestore()
-    func addData(teamName: String, joinCode:String){
-        let team = Team(teamName: teamName, joinCode: joinCode)
-        db.collection("Team").addDocument(data: team.teamDict())
-    }
-    
-    func findTeamInFirebase(joinCode: String){
-        print(AuthViewModel.authUser?.email as Any)
-        db.collection("Team").whereField("code", isEqualTo:joinCode )
-            .getDocuments() { (querySnapshot, err) in
-                var user = db.collection("User").whereField("email", isEqualTo: AuthViewModel.authUser?.email as Any)
-                        .getDocuments() { (querySnapshot, err) in
-                            if let err = err {
-                                print("Error getting documents: \(err)")
-                            } else {
-                                for document in querySnapshot!.documents {
-                                    db.collection("User").document(document.documentID).updateData(["team": joinCode ?? ""])
-                                }
-                            }
-                            
-                        }
-            }
-    }
-
-}
-//    func updateUserTeam(){
-//        let email = AuthViewModel.authUser?.email
-//
-//        db.collection("User").whereField(email, isEqualTo: email)
+//struct TeamViewModel{
+//    @State fileprivate var found = false
+//    private var db = Firestore.firestore()
+//    func addData(teamName: String, joinCode:String){
+//        let team = Team(teamName: teamName, joinCode: joinCode)
+//        db.collection("Team").addDocument(data: team.teamDict())
 //    }
+//
+//    func findTeamInFirebase(joinCode: String){
+//        print(AuthViewModel.authUser?.email as Any)
+//        db.collection("Team").whereField("code", isEqualTo:joinCode )
+//            .getDocuments() { (querySnapshot, err) in
+//                var user = db.collection("User").whereField("email", isEqualTo: AuthViewModel.authUser?.email as Any)
+//                        .getDocuments() { (querySnapshot, err) in
+//                            if let err = err {
+//                                print("Error getting documents: \(err)")
+//                            } else {
+//                                for document in querySnapshot!.documents {
+//                                    db.collection("User").document(document.documentID).updateData(["team": joinCode ?? ""])
+//                                }
+//                            }
+//
+//                        }
+//            }
+//    }
+//
+//}
+////    func updateUserTeam(){
+////        let email = AuthViewModel.authUser?.email
+////
+////        db.collection("User").whereField(email, isEqualTo: email)
+////    }
