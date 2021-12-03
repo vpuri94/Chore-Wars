@@ -60,7 +60,7 @@ class UserViewModel: ObservableObject{
             }
         }
         let user = User(id: id, firstName: firstName, lastName: lastName, displayName: displayName, totalPoints: totalPoints, email: email, token: fcmToken ?? "")
-        db.collection("User").addDocument(data: user.userDict())
+        let doc = db.collection("User").addDocument(data: user.userDict())
         db.collection("User").document(doc.documentID).updateData(["id": doc.documentID])
         currentUserID = doc.documentID
     }
@@ -173,7 +173,9 @@ class UserViewModel: ObservableObject{
                         let points = document["points"] as? Int ?? 0
                         let dueDate = document["dueDate"] as? Date ?? NSDate.now
                         let category = document["category"] as? String ?? ""
-                        let newTask = Task(id: id, name: name, points: points, dueDate: dueDate, claimed: self.currentUserID, category: category)
+                        let teamName = document["team"] as? String ?? ""
+                        
+                        let newTask = Task(id: id, name: name, points: points, dueDate: dueDate, claimed: self.currentUserID, category: category, teamName: teamName)
                         self.AllUserTasks.append(newTask)
                     }
                 }

@@ -77,7 +77,6 @@
 		D87A23C602D0DD8F37CFDA66 /* Pods-InitialStructsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InitialStructsTests.debug.xcconfig"; path = "Target Support Files/Pods-InitialStructsTests/Pods-InitialStructsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DB6F44CF4F8C84A95F48D9F5 /* Pods_InitialStructs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InitialStructs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9B50B0BEF759BB87CEE13A2 /* Pods-InitialStructs-InitialStructsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InitialStructs-InitialStructsUITests.debug.xcconfig"; path = "Target Support Files/Pods-InitialStructs-InitialStructsUITests/Pods-InitialStructs-InitialStructsUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		F6092F8B27358E7B000A39D0 /* DashboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DashboardView.swift; path = "../../../../../../../Downloads/Dashboard UI/DashboardView.swift"; sourceTree = "<group>"; };
 		F6092F8C27358E7B000A39D0 /* BottomBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomBar.swift; sourceTree = "<group>"; };
 		F6092F8D27358E7B000A39D0 /* ScoreCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreCardView.swift; sourceTree = "<group>"; };
 		F6092F8E27358E7B000A39D0 /* CheckBoxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
@@ -198,7 +197,6 @@
 				F6663C5B271F3711003427B9 /* SceneDelegate.swift */,
 				5B5340132758A37700C5CB75 /* Assets.xcassets */,
 				F6663C9027206079003427B9 /* View */,
-				5B53400827588E8600C5CB75 /* DashboardView.swift */,
 				F6663C64271F3712003427B9 /* LaunchScreen.storyboard */,
 				F6663C67271F3712003427B9 /* Info.plist */,
 				5B53400627588A7B00C5CB75 /* GoogleService-Info.plist */,
@@ -258,7 +256,7 @@
 				F6092F8D27358E7B000A39D0 /* ScoreCardView.swift */,
 				F6663C9627212EC2003427B9 /* AddNewChoreView.swift */,
 				F6FC0A0B2730C34A0046E3C8 /* TaskRow.swift */,
-				F6092F8B27358E7B000A39D0 /* DashboardView.swift */,
+				5B53400827588E8600C5CB75 /* DashboardView.swift */,
 				F618C9EC274D431900350695 /* LogInView.swift */,
 				F6D7200E275371F40059E714 /* SignUp.swift */,
 				F6D72010275376E90059E714 /* SignUpView2.swift */,
