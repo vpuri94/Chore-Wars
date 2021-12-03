@@ -144,10 +144,10 @@ class UserViewModel: ObservableObject{
         }
     }
     
-    func getAllTasksForCurrentUser(userId: String){
+    func getAllTasksForCurrentUser(){
         AllUserTasks = [Task]()
         
-        db.collection("Task").whereField("claimed", isEqualTo: userId).whereField("completed", isEqualTo: true)
+        db.collection("Task").whereField("claimed", isEqualTo: currentUserID).whereField("completed", isEqualTo: false)
             .getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
@@ -169,14 +169,5 @@ class UserViewModel: ObservableObject{
     func incompleteTasks(){
        incompleteTasksForCurrentUser = currentUserTasks.filter{ $0.isNotCompleted() }
     }
-
-//    func updateTeam(teamCode: String){
-//        db.collection("User").whereField("id", isEqualTo: currentUserID)
-//            .getDocument { (document, error) in
-//            if let document = document, document.exists {
-//
-//            }
-//        }
-//    }
     
 }

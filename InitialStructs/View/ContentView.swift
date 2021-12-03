@@ -41,7 +41,7 @@ struct TabViews: View{
     @ObservedObject  var user: UserViewModel
     var body: some View{
         TabView {
-            DashboardView(user: user).tabItem {
+            UserProfileView(user: user).tabItem {
                     Image( "dashboard-icon")
                 }
                 LeaderboardView().tabItem{
