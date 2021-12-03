@@ -49,8 +49,13 @@ class UserViewModel: ObservableObject{
     
     func addData(id: String, firstName:String, lastName: String, displayName: String, email: String, totalPoints: Int = 0){
         let user = User(id: id, firstName: firstName, lastName: lastName, displayName: displayName, totalPoints: totalPoints, email: email)
-        db.collection("User").addDocument(data: user.userDict())
+        let doc = db.collection("User").addDocument(data: user.userDict())
+        db.collection("User").document(doc.documentID).updateData(["id": doc.documentID])
+        currentUserID = doc.documentID
     }
+
+    
+
     func updatePoints(userId:String,points:Int){
         let user = db.collection("User").document(userId)
         user.getDocument { (document, error) in
@@ -107,7 +112,6 @@ class UserViewModel: ObservableObject{
                                                 lastName: lastName, displayName: displayName,
                                                 totalPoints: totalPoints, email: email)
             
-//                        self.currentUserEmail = email
                         self.currentUserID = id
                         self.currentUserTeam  = team
                         print("here")
@@ -138,9 +142,18 @@ class UserViewModel: ObservableObject{
                 }
         }
     }
+    
     func incompleteTasks(){
        incompleteTasksForCurrentUser = currentUserTasks.filter{ $0.isNotCompleted() }
     }
 
+//    func updateTeam(teamCode: String){
+//        db.collection("User").whereField("id", isEqualTo: currentUserID)
+//            .getDocument { (document, error) in
+//            if let document = document, document.exists {
+//
+//            }
+//        }
+//    }
     
 }

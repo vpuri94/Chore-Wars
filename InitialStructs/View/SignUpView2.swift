@@ -15,11 +15,13 @@ struct SignUpView2: View {
     @State private var lastName = ""
     @State private var avatar = ""
     @State private var authUser = AuthViewModel.authUser
+    @State private var canMove: Bool = false
     
     var body: some View {
         let width  = UIScreen.main.bounds.width
-        
-        
+        if (canMove){
+            CreateTeamView(user: user)
+        }else{
         VStack{
             Spacer()
             Text("Upload Picture").font(.subheadline)
@@ -29,7 +31,8 @@ struct SignUpView2: View {
             TextField(
                 "DisplayName",
                 text: $displayName
-            ).frame(width: width-50, height: 50)
+            ).disableAutocorrection(true)
+                .frame(width: width-50, height: 50)
                 .font(.custom("Montserrat",size: 18))
                 .padding(4)
                     .overlay(
@@ -40,7 +43,9 @@ struct SignUpView2: View {
             TextField(
                 "First Name",
                 text: $firstName
-            ).frame(width: width-50, height: 50)
+                
+            ).disableAutocorrection(true)
+                .frame(width: width-50, height: 50)
                 .font(.custom("Montserrat",size: 18))
                 .padding(4)
                     .overlay(
@@ -48,6 +53,7 @@ struct SignUpView2: View {
                             .stroke(Color.black, lineWidth: 1)
                     )
                     .padding(.top)
+                
             TextField(
                 "LastName",
                 text: $lastName
@@ -59,15 +65,11 @@ struct SignUpView2: View {
                             .stroke(Color.black, lineWidth: 1)
                     )
                     .padding(.top)
+                    .disableAutocorrection(true)
             Button( action:{
                 if( firstName != "" && lastName != "" && displayName != "" && authUser!.email != ""){
                     user.addData(id: authUser!.uid, firstName: firstName, lastName: lastName, displayName: displayName, email: authUser?.email ?? "")
-                }else{
-                    print(firstName)
-                    print(lastName)
-                    print(displayName)
-                    print(authUser!.uid)
-                    print(authUser!.email)
+                    canMove.toggle()
                 }
             },label:{
                 Text("Sign Up")
@@ -80,6 +82,7 @@ struct SignUpView2: View {
                 .cornerRadius(10)
         }
         Spacer()
+        }
     }
 }
 
