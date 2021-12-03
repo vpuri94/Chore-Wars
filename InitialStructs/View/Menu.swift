@@ -101,7 +101,7 @@ struct Menu: View {
     func resetTeam(){
         var functions = Functions.functions()
         var team = AuthViewModel.currentTeam
-        functions.httpsCallable("resetNotify").call(["team": team?.joinCode, "winner": team?.lastRoundWinner, "loser": team?.lastRoundLoser, "prize":team?.CurrentReward, "punishment": team?.currentPunishment]){result, error in
+        functions.httpsCallable("resetNotify").call(["team": team?.joinCode, "winner": team?.lastRoundWinner, "loser": team?.lastRoundLoser, "prize":team?.currentReward, "punishment": team?.currentPunishment]){result, error in
             if let error = error as NSError? {
                 if error.domain == FunctionsErrorDomain {
                     let code = FunctionsErrorCode(rawValue: error.code)
@@ -128,7 +128,7 @@ struct Menu: View {
                 }
         }
         //call the random func
-        AuthViewModel.currentTeam?.CurrentReward = rewards.randomElement() ?? "All team members must buy winner dinner. "
+        AuthViewModel.currentTeam?.currentReward = rewards.randomElement() ?? "All team members must buy winner dinner. "
         AuthViewModel.currentTeam?.currentPunishment = punishments.randomElement() ?? "Loser must clean winners room"
         
         

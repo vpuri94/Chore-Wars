@@ -119,7 +119,7 @@ class UserViewModel: ObservableObject{
                                                 lastName: lastName, displayName: displayName,
                                                 totalPoints: totalPoints, email: email, token: token)
             
-//                        self.currentUserEmail = email
+                        self.currentUserEmail = email
                         self.currentUserID = id
                         self.currentUserTeam  = team
                         print("here")
@@ -154,6 +154,27 @@ class UserViewModel: ObservableObject{
     }
     func incompleteTasks(){
        incompleteTasksForCurrentUser = currentUserTasks.filter{ $0.isNotCompleted() }
+    }
+    
+    func getTeamFromUser(){
+        AuthViewModel.currentTeam = Team()
+        db.collection("Team").whereField("team", isEqualTo: currentUserTeam )
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+//                        print("\(document.documentID) => \(document.data())")
+                        AuthViewModel.currentTeam?.id  = document["id"] as? String ?? ""
+                        AuthViewModel.currentTeam?.teamName = document["name"] as? String ?? ""
+                        AuthViewModel.currentTeam?.joinCode = document["code"] as? String ?? ""
+                        AuthViewModel.currentTeam?.currentReward = document["crntReward"] as? String ?? ""
+                        AuthViewModel.currentTeam?.currentPunishment = document["crntPunishment"] as? String ?? ""
+                        AuthViewModel.currentTeam?.lastRoundWinner = document["lastRoundWinner"] as? String ?? ""
+                        AuthViewModel.currentTeam?.lastRoundLoser = document["lastRoundLooser"] as? String ?? ""
+                    }
+                }
+        }
     }
 
     
