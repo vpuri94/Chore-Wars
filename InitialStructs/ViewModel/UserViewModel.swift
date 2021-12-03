@@ -16,6 +16,7 @@ class UserViewModel: ObservableObject{
     @Published var users = [User]()
     @Published var currentUser: User? = nil
     @Published var currentUserTasks = [Task]()
+    @Published var AllUserTasks = [Task]()
     @Published var incompleteTasksForCurrentUser = [Task]()
     @Published var currentUserID = ""
     @Published var currentUserEmail = ""
@@ -138,6 +139,28 @@ class UserViewModel: ObservableObject{
                         let category = document["category"] as? String ?? ""
                         let newTask = Task(id: id, name: name, points: points, dueDate: dueDate, claimed: self.currentUserID, category: category)
                         self.currentUserTasks.append(newTask)
+                    }
+                }
+        }
+    }
+    
+    func getAllTasksForCurrentUser(userId: String){
+        AllUserTasks = [Task]()
+        
+        db.collection("Task").whereField("claimed", isEqualTo: userId).whereField("completed", isEqualTo: true)
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+//                        print("\(document.documentID) => \(document.data())")
+                        let id  = document["id"] as? String ?? ""
+                        let name = document["name"] as? String ?? ""
+                        let points = document["points"] as? Int ?? 0
+                        let dueDate = document["dueDate"] as? Date ?? NSDate.now
+                        let category = document["category"] as? String ?? ""
+                        let newTask = Task(id: id, name: name, points: points, dueDate: dueDate, claimed: self.currentUserID, category: category)
+                        self.AllUserTasks.append(newTask)
                     }
                 }
         }

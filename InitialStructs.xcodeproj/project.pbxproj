@@ -39,6 +39,7 @@
 		F6D7200F275371F40059E714 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D7200E275371F40059E714 /* SignUp.swift */; };
 		F6D72011275376E90059E714 /* SignUpView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D72010275376E90059E714 /* SignUpView2.swift */; };
 		F6D720152754A3A40059E714 /* CreateTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D720142754A3A40059E714 /* CreateTeamView.swift */; };
+		F6EB004E275AA2D300A5207C /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EB004D275AA2D300A5207C /* UserProfileView.swift */; };
 		F6FC0A0C2730C34A0046E3C8 /* TaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FC0A0B2730C34A0046E3C8 /* TaskRow.swift */; };
 		FCA5D46AFBAF3A73AD667596 /* Pods_InitialStructsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54FD79BA087A6CB816BE3ECE /* Pods_InitialStructsTests.framework */; };
 /* End PBXBuildFile section */
@@ -105,6 +106,7 @@
 		F6D7200E275371F40059E714 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		F6D72010275376E90059E714 /* SignUpView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView2.swift; sourceTree = "<group>"; };
 		F6D720142754A3A40059E714 /* CreateTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTeamView.swift; sourceTree = "<group>"; };
+		F6EB004D275AA2D300A5207C /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		F6FC0A0B2730C34A0046E3C8 /* TaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRow.swift; sourceTree = "<group>"; };
 		F92CF8A92A9D22546F336F22 /* Pods_InitialStructs_InitialStructsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InitialStructs_InitialStructsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -255,6 +257,7 @@
 				F6D72010275376E90059E714 /* SignUpView2.swift */,
 				F6D720142754A3A40059E714 /* CreateTeamView.swift */,
 				F67BB30027574DD300843DCB /* StartView.swift */,
+				F6EB004D275AA2D300A5207C /* UserProfileView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -563,6 +566,7 @@
 				F6663C5A271F3711003427B9 /* AppDelegate.swift in Sources */,
 				F6663C5C271F3711003427B9 /* SceneDelegate.swift in Sources */,
 				F6663C92272060A0003427B9 /* TaskView.swift in Sources */,
+				F6EB004E275AA2D300A5207C /* UserProfileView.swift in Sources */,
 				F6FC0A0C2730C34A0046E3C8 /* TaskRow.swift in Sources */,
 				F6092F9127358E7C000A39D0 /* BottomBar.swift in Sources */,
 				F6663C8F27205F56003427B9 /* User.swift in Sources */,

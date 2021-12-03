@@ -286,32 +286,16 @@
             filePath = "InitialStructs/ViewModel/UserViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
-            landmarkName = "getUserFromEmail(email:)"
-            landmarkType = "7">
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "UserViewModel"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "B977F2BF-B041-4414-A311-63B610A6F40C"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InitialStructs/ViewModel/UserViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "getUserFromEmail(email:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E84A2F48-EFE4-4558-96AF-2FC55665ECCC"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -327,7 +311,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3F897582-3F3F-4828-9B35-25A0D035C489"
+            uuid = "E84A2F48-EFE4-4558-96AF-2FC55665ECCC"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -343,6 +327,22 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            uuid = "3F897582-3F3F-4828-9B35-25A0D035C489"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InitialStructs/ViewModel/UserViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "getUserFromEmail(email:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
             uuid = "BA9C9C4E-DC74-4A12-AE41-B27CA5D9D3D3"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -350,10 +350,10 @@
             filePath = "InitialStructs/ViewModel/UserViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
-            landmarkName = "UserViewModel"
-            landmarkType = "3">
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "getTasksForCurrentUser(userId:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
