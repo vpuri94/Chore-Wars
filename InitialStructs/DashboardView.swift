@@ -10,7 +10,6 @@ import SwiftUI
 struct DashboardView: View {
     @ObservedObject var user: UserViewModel
     @ObservedObject var tasks = TaskViewModel()
-    var leaderboard = LeaderboardView()
 //    @ObeservedObject private var id = user.currentUserID
     @State var showNewView = false
 //    var currentUserTasks: [Task] = user.currentUserTasks
@@ -47,7 +46,7 @@ struct DashboardView: View {
                     self.user.incompleteTasks()
                 }
             .navigationBarItems(leading:
-                                    NavigationLink(destination: leaderboard){
+                                    NavigationLink(destination: Menu(user: user)){
                                         Image(systemName: "list.bullet").imageScale(.large)
                                     }
             )
