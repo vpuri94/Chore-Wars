@@ -13,6 +13,7 @@
 import FirebaseAuth
 class AuthViewModel {
     static var authUser:FirebaseAuth.User? = nil
+    static var currentTeam: Team? = nil
     
 }
 //

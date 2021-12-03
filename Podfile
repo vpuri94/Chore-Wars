@@ -11,8 +11,10 @@ target 'InitialStructs' do
   pod "Firebase/Firestore"
   pod "Firebase/Auth"
   pod "Firebase/Analytics"
-  pod 'FirebaseUI/Google'
-  pod 'FirebaseUI/OAuth' # Used for Sign in with Apple, Twitter, etc
+  pod "FirebaseUI/Google"
+  pod "FirebaseUI/OAuth" # Used for Sign in with Apple, Twitter, etc
+  pod "Firebase/Messaging"
+  pod "Firebase/Functions"
 
   target 'InitialStructsTests' do
     inherit! :search_paths

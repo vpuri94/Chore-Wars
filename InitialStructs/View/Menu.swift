@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
+import FirebaseFunctions
+var db = Firestore.firestore()
 
 struct Menu: View {
     @ObservedObject private var taskViewModel = TaskViewModel()
@@ -44,7 +47,7 @@ struct Menu: View {
                             .cornerRadius(40)
                         }
                         Button(action: {
-                            print(user.currentUserTeam)
+                            resetTeam()
                         }) {
                             HStack {
                                 Image(systemName: "arrow.clockwise")
@@ -80,7 +83,56 @@ struct Menu: View {
        }
    }
  */
-   
+    
+    func updatePoints(userId:String,points:Int){
+        let user = db.collection("User").document(userId)
+        user.getDocument { (document, error) in
+            if let document = document, document.exists {
+                var totalPoints = document.get("totalPoints")
+                totalPoints = totalPoints as! Int + points
+                db.collection("User").document(userId).updateData(["totalPoints": totalPoints ?? 0])
+            } else {
+                print("Document does not exist")
+            }
+        }
+//            var user = User(firstName: firstName, lastName: lastName, displayName: displayName, totalPoints: totalPoints)
+    }
+    
+    func resetTeam(){
+        var functions = Functions.functions()
+        var team = AuthViewModel.currentTeam
+        functions.httpsCallable("resetNotify").call(["team": team?.joinCode, "winner": team?.lastRoundWinner, "loser": team?.lastRoundLoser, "prize":team?.CurrentReward, "punishment": team?.currentPunishment]){result, error in
+            if let error = error as NSError? {
+                if error.domain == FunctionsErrorDomain {
+                    let code = FunctionsErrorCode(rawValue: error.code)
+                    let message = error.localizedDescription
+                    let details = error.userInfo
+                }
+            }
+        }
+        var rewards = ["All team members must buy winner dinner. ","Everyone buys winner a shot","Loser must clean winners room","Everyone does winners laundry for next week", "Winner gets to choose the next bar they go to" ]
+        var punishments = ["Loser must clean winners room", "Loser must do everyones dishes for next week", "Loser must clean the house", "Loser has to call an ex telling him/her that the loser misses them", "Loser has to make an embarassing TikTok of winners choice", "Loser has to let rest of group DM someone from losers IG/Twitter/FB account"]
+        
+        db.collection("Task").whereField("team", isEqualTo: user.currentUserTeam)
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        db.collection("Task").document(document.documentID).delete() { err in
+                            if let err = err {
+                                print("Error removing document: \(err)")
+                            }
+                        }
+                    }
+                }
+        }
+        //call the random func
+        AuthViewModel.currentTeam?.CurrentReward = rewards.randomElement() ?? "All team members must buy winner dinner. "
+        AuthViewModel.currentTeam?.currentPunishment = punishments.randomElement() ?? "Loser must clean winners room"
+        
+        
+    }
     
 }
 

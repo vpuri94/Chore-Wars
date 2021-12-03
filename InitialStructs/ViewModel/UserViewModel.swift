@@ -8,9 +8,10 @@
 import Foundation
 
 
-import Foundation
+import Firebase
 import FirebaseFirestore
 import SwiftUI
+import UserNotifications
 
 class UserViewModel: ObservableObject{
     @Published var users = [User]()
@@ -40,7 +41,8 @@ class UserViewModel: ObservableObject{
                 let team = data["team"] as? String ?? ""
                 let totalPoints = data["totalPoints"] as? Int ?? 0
                 let email = data["email"] as? String ?? ""
-                var user = User(id: id, firstName: firstName, lastName: lastName, displayName: displayName, totalPoints: totalPoints, email: email)
+                let token = data["token"] as? String ?? ""
+                var user = User(id: id, firstName: firstName, lastName: lastName, displayName: displayName, totalPoints: totalPoints, email: email, token: token)
                 user.team = team
                 return user
             }
@@ -48,7 +50,15 @@ class UserViewModel: ObservableObject{
     }
     
     func addData(id: String, firstName:String, lastName: String, displayName: String, email: String, totalPoints: Int = 0){
-        let user = User(id: id, firstName: firstName, lastName: lastName, displayName: displayName, totalPoints: totalPoints, email: email)
+        var fcmToken = Messaging.messaging().fcmToken
+            Messaging.messaging().token { token, error in
+            if let error = error{
+                //nothing
+            } else if let token = token{
+                fcmToken = token
+            }
+        }
+        let user = User(id: id, firstName: firstName, lastName: lastName, displayName: displayName, totalPoints: totalPoints, email: email, token: fcmToken ?? "")
         db.collection("User").addDocument(data: user.userDict())
     }
     func updatePoints(userId:String,points:Int){
@@ -76,9 +86,10 @@ class UserViewModel: ObservableObject{
                 let team = document.get("team") as? String ?? ""
                 let totalPoints = document.get("totalPoints") as? Int ?? 0
                 let email = document.get("email") as? String ?? ""
+                let token = document.get("token") as? String ?? ""
                 var user = User(id: id, firstName: firstName,
                                 lastName: lastName, displayName: displayName, totalPoints:
-                                    totalPoints, email: email)
+                                    totalPoints, email: email, token: token)
                 user.team = team
                 self.currentUser = user
             } else {
@@ -103,9 +114,10 @@ class UserViewModel: ObservableObject{
                         let email = document["email"] as? String ?? ""
                         let team = document["team"] as? String ?? ""
                         let totalPoints = document["totalPoints"] as? Int ?? 0
+                        let token = document.get("token") as? String ?? ""
                         self.currentUser = User(id: id, firstName: firstName,
                                                 lastName: lastName, displayName: displayName,
-                                                totalPoints: totalPoints, email: email)
+                                                totalPoints: totalPoints, email: email, token: token)
             
 //                        self.currentUserEmail = email
                         self.currentUserID = id

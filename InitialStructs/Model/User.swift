@@ -16,14 +16,16 @@ struct User {
     var email: String;
     var team: String? = "";
     var totalPoints: Int = 0;
+    var token: String;
   
-    init(id: String, firstName: String, lastName: String, displayName: String, totalPoints: Int, email: String) {
+    init(id: String, firstName: String, lastName: String, displayName: String, totalPoints: Int, email: String, token: String) {
         self.id = id
         self.firstName = firstName
         self.lastName = lastName
         self.displayName = displayName
         self.totalPoints = totalPoints
         self.email = email
+        self.token = token
     }
     
     func userDict() ->[String: Any]{
@@ -35,7 +37,8 @@ struct User {
             "avatar": self.avatar as Any,
             "team": self.team as Any,
             "totalPoints": self.totalPoints,
-            "email": self.email
+            "email": self.email,
+            "token": self.token
             ]
         return dict
     }
