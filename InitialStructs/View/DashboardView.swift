@@ -42,7 +42,7 @@ struct DashboardView: View {
                 .navigationBarTitle("Dashboard", displayMode: .inline)
                 .onAppear(){
                     self.user.getTasksForCurrentUser(userId: user.currentUserID)
-                    self.
+                    
                 }
             .navigationBarItems(leading:
                                     NavigationLink(destination: Menu(user: user)){

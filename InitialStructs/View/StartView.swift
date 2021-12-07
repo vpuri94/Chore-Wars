@@ -16,13 +16,13 @@ struct StartView: View {
         NavigationView{
             VStack(spacing: 30){
                 Spacer().frame( height: 100, alignment: .leading)
-                Text("Welcome To ChoreWars")
-                    .font(.custom("Montserrat",size: 40))
+                Text("Chore Wars")
                     .frame(width: width, alignment: .center)
-                    .foregroundColor(Color.blue)
+                    .font(.custom("Montserrat-Bold",size: 40))
+                    .foregroundColor(Color(UIColor.turquoise))
                 Spacer()
                 NavigationLink(destination: LogInView(user: user)) {
-                    Text("LogIn")
+                    Text("Log In")
                         .foregroundColor(Color.white)
                         .frame(width: width-100, height: 50)
                         
@@ -57,4 +57,8 @@ struct StartView: View {
         }
         
     }
+}
+
+extension UIColor {
+    static let turquoise = UIColor(red: 0.00, green: 0.57, blue: 0.71, alpha: 1.00)
 }

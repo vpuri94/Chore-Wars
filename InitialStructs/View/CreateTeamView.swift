@@ -24,7 +24,7 @@ struct CreateTeamView: View {
             LogInView(user:user)
         }else{
         TextField(
-            "First Name",
+            "Team Name",
             text: $teamName
         ).frame(width: width-50, height: 50)
             .font(.custom("Montserrat",size: 18))
