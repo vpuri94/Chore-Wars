@@ -167,7 +167,6 @@ class UserViewModel: ObservableObject{
     
     func getTasksForCurrentUser(userId: String){
         currentUserTasks = [Task]()
-        
         db.collection("Task").whereField("claimed", isEqualTo: userId).whereField("completed", isEqualTo: false)
             .getDocuments() { (querySnapshot, err) in
                 if let err = err {
@@ -198,14 +197,12 @@ class UserViewModel: ObservableObject{
                     print("Error getting documents: \(err)")
                 } else {
                     for document in querySnapshot!.documents {
-//                        print("\(document.documentID) => \(document.data())")
                         let id  = document["id"] as? String ?? ""
                         let name = document["name"] as? String ?? ""
                         let points = document["points"] as? Int ?? 0
                         let dueDate = document["dueDate"] as? Date ?? NSDate.now
                         let category = document["category"] as? String ?? ""
                         let teamName = document["team"] as? String ?? ""
-                        
                         let newTask = Task(id: id, name: name, points: points, dueDate: dueDate, claimed: self.currentUserID, category: category, teamName: teamName)
                         self.AllUserTasks.append(newTask)
                     }
