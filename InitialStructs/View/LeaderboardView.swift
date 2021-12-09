@@ -12,7 +12,7 @@ struct LeaderboardView: View {
 
     @State private var selection: String? = "A"
     @ObservedObject  var user: UserViewModel
-
+    @Binding var tabSelection: Int
     var width  = UIScreen.main.bounds.width
     let image = Image("profile")
     let prize = Image("prize")

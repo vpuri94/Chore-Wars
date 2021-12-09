@@ -9,8 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject private var user = UserViewModel()
-//    @State private var loggedIn = true
+//   @State private var loggedIn = true
 //    @EnvironmentObject var authentication: Authentication
+    
     init() {
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.backgroundColor = UIColor.white
@@ -22,6 +23,7 @@ struct ContentView: View {
         UINavigationBar.appearance().standardAppearance = appearance
     }
     var body: some View {
+//        switch loggedIn {
         switch user.signedIn {
         case true:
             TabViews(user:user)
@@ -39,28 +41,44 @@ struct ContentView_Previews: PreviewProvider {
 
 struct TabViews: View{
     @ObservedObject  var user: UserViewModel
+    @State var tabSelection = 1
     var body: some View{
-        TabView {
-            DashboardView(user: user).tabItem {
-                    Image( "dashboard-icon")
+        TabView(selection: $tabSelection) {
+            DashboardView(user: user, tabSelection: $tabSelection).tabItem {
+                Image("dashboard-icon")
+                    .renderingMode(.template)
+                    .frame(minWidth: 30, minHeight: 100)
                 }
-            LeaderboardView(user:user).tabItem{
-                    Image( "leaderboard-icon")
+            .tag(1)
+            LeaderboardView(tabSelection: $tabSelection).tabItem{
+                    Image("leaderboard-icon")
+                    .renderingMode(.template)
+                        .frame(minWidth: 30, minHeight: 100)
                 }
+            .tag(2)
             AddNewChoreView(user: user).tabItem{
-                    Image( "add-icon")
+                    Image("add-icon")
+                   
+                        .frame(minWidth: 30, minHeight: 100)
                 }
             TaskView(user:user).tabItem{
                     Image("chores-icon")
+                    .renderingMode(.template)
+                        .frame(minWidth: 30, minHeight: 100)
                 }
             TaskView(user:user).tabItem{
                     Image("reviews-icon")
+                    .renderingMode(.template)
+                        .frame(minWidth: 30, minHeight: 50)
                 }
                 
             }
-            
+            .accentColor(Color(UIColor.turquoise))
             .background(Color.white)
             .clipShape(Rectangle())
             .shadow(radius: 3)
+            .ignoresSafeArea()
     }
 }
+
+

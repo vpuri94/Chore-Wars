@@ -16,18 +16,16 @@ struct StartView: View {
         NavigationView{
             VStack(spacing: 30){
                 Spacer().frame( height: 100, alignment: .leading)
-//                VStack{
-//                Text("Welcome To ")
-//                Text("Chore Wars").font(.title)
-//                    .font(.custom("Montserrat",size: 40))
-//                    .frame(width: width, alignment: .center)
-//                    .foregroundColor(Color.blue)
-//                }
-                image.resizable()
-                    .frame(width: 150, height: 150)
+                Image("logo")
+                    .scaledToFit()
+                    .frame(width:200, height:200, alignment:.center)
+                Text("Chore Wars")
+                    .frame(width: width, alignment: .center)
+                    .font(.custom("Montserrat-Bold",size: 40))
+                    .foregroundColor(Color(UIColor.turquoise))
                 Spacer()
                 NavigationLink(destination: LogInView(user: user)) {
-                    Text("LogIn")
+                    Text("Log In")
                         .foregroundColor(Color.white)
                         .frame(width: width-100, height: 50)
                         
@@ -56,4 +54,8 @@ struct StartView: View {
         }.background(Color.lighterGray)
         
     }
+}
+
+extension UIColor {
+    static let turquoise = UIColor(red: 0.00, green: 0.57, blue: 0.71, alpha: 1.00)
 }
