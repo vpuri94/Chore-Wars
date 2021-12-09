@@ -20,6 +20,20 @@
                ReferencedContainer = "container:InitialStructs.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F6663C6B271F3712003427B9"
+               BuildableName = "InitialStructsTests.xctest"
+               BlueprintName = "InitialStructsTests"
+               ReferencedContainer = "container:InitialStructs.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

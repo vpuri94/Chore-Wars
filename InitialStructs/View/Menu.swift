@@ -9,6 +9,9 @@ import SwiftUI
 import FirebaseFirestore
 import FirebaseFunctions
 var db = Firestore.firestore()
+var myTeamDict: [Int: String] = [:]
+var currentWinnerFinal:String = ""
+var currentLoserFinal:String = ""
 
 struct Menu: View {
     @ObservedObject private var taskViewModel = TaskViewModel()
@@ -104,6 +107,7 @@ struct Menu: View {
     }
     
     func resetTeam(){
+        /*
         var functions = Functions.functions()
         var team = AuthViewModel.currentTeam
         functions.httpsCallable("resetNotify").call(["team": team?.joinCode, "winner": team?.lastRoundWinner, "loser": team?.lastRoundLoser, "prize":team?.currentReward, "punishment": team?.currentPunishment]){result, error in
@@ -159,8 +163,89 @@ struct Menu: View {
                 }
                 
         }
-        
+ */
+        setLastWinnerLoser()
+        resetUserScore()
     }
+    
+    func setLastWinnerLoser(){
+        db.collection("User").whereField("team", isEqualTo: user.currentUserTeam)
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        let displayName = document.get("displayName") as? String
+                        let points = document.get("totalPoints") as? Int
+                        myTeamDict[points!] = displayName!
+                    }
+                }
+                var lowestScore = 2147483647
+                var highestScore = 0
+                var currentWinner = ""
+                var currentLoser = ""
+                for key in myTeamDict.keys{
+                    if(key > highestScore){
+                        highestScore = key
+                        currentWinner = myTeamDict[key] ?? ""
+                    }
+                    if(key < lowestScore){
+                        lowestScore = key
+                        currentLoser = myTeamDict[key] ?? ""
+                    }
+                }
+
+                currentWinnerFinal = currentWinner
+                currentLoserFinal = currentLoser
+                assignLastLoserWinner()
+            }
+    }
+    
+    func assignLastLoserWinner(){
+        db.collection("Team").whereField("code", isEqualTo: user.currentUserTeam)
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    
+                    for document in querySnapshot!.documents {
+                        print(currentWinnerFinal)
+                        db.collection("Team").document(document.documentID).setData([
+                            "lastRoundLoser" : currentLoserFinal,
+                            "lastRoundWinner" : currentWinnerFinal
+                        ], merge: true) { err in
+                            if let err = err {
+                                print("Error removing document: \(err)")
+                            }
+                        }
+                        
+                    }
+                    
+                }
+        }
+    }
+    func resetUserScore(){
+        db.collection("User").whereField("team", isEqualTo: user.currentUserTeam)
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    
+                    for document in querySnapshot!.documents {
+                        db.collection("User").document(document.documentID).setData([
+                            "totalPoints" : 0
+                        ], merge: true) { err in
+                            if let err = err {
+                                print("Error removing document: \(err)")
+                            }
+                        }
+                        
+                    }
+                    
+                }
+        }
+    }
+    
     
 }
 
