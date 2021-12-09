@@ -84,10 +84,10 @@ struct LogInView: View {
                             .frame(width:width-100)
                             .padding()
                             .foregroundColor(Color.white)
-                            .cornerRadius(10)
-                    })
-                        .background(Color.signIn)
+    
+                    }).background(Color.signIn)
                         .cornerRadius(10)
+                        
 
                 }.autocapitalization(.none)
 //                    .textFieldStyle(RoundedBorderTextFieldStyle())

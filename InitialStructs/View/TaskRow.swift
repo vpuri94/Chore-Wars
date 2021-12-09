@@ -9,13 +9,10 @@ import SwiftUI
 
 struct TaskRow: View{
     @State var task: Task
-//    let user = User(firstName: "Talha", lastName: "Subzwari" , displayName: "Copperbolt", totalPoints: 300)
-    
     @ObservedObject  var user: UserViewModel
     @ObservedObject private var taskViewModel = TaskViewModel()
-//    @ObservedObject private var userViewModel = UserViewModel()
+    
     var body: some View{
-        
         HStack{
             HStack (alignment:.center) {
                 VStack (alignment:.leading){
@@ -25,15 +22,25 @@ struct TaskRow: View{
                     Text("Due \(task.getDate())")
                 }.padding()
             }
+            Spacer()
             Text(String(task.points)).padding()
-//            Text(String(task.getUserName()))
-            Image(systemName: isClaimed() ? "checkmark" : "plus")
-                        .foregroundColor(isClaimed() ? Color(UIColor.systemBlue) : Color.secondary)
-                        .onTapGesture {
-                            claimAChore()
-                        }
-            
-        }
+            if(isClaimed()){
+                VStack(alignment: .leading){
+                    HStack {
+                        Image("profile")
+                            .resizable()
+                            .frame(width: 42, height: 42)
+//                        Text(user.getUser(userId: task.claimed ?? "").displayName )
+                    }
+                }
+            }else {
+                Image(systemName: isClaimed() ? "checkmark" : "plus")
+                    .foregroundColor(isClaimed() ? Color(UIColor.systemBlue) : Color.secondary)
+                    .onTapGesture {
+                        claimAChore()
+                    }
+            }
+        }.padding().cornerRadius(10)
     }
     
     

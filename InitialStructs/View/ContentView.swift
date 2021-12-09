@@ -24,7 +24,7 @@ struct ContentView: View {
     var body: some View {
         switch user.signedIn {
         case true:
-            TabViews(user: user)
+            TabViews(user:user)
         case false:
             StartView(user: user)
         }
@@ -44,7 +44,7 @@ struct TabViews: View{
             DashboardView(user: user).tabItem {
                     Image( "dashboard-icon")
                 }
-                LeaderboardView().tabItem{
+            LeaderboardView(user:user).tabItem{
                     Image( "leaderboard-icon")
                 }
             AddNewChoreView(user: user).tabItem{

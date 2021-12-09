@@ -24,6 +24,7 @@ class UserViewModel: ObservableObject{
     @Published var currentUserEmail = ""
     @Published var currentUserTeam = ""
     @Published var signedIn = false
+    @Published var taskUser: User? = nil
 
     
     
@@ -46,19 +47,11 @@ class UserViewModel: ObservableObject{
                 let token = data["token"] as? String ?? ""
                 var user = User(id: id, firstName: firstName, lastName: lastName, displayName: displayName, totalPoints: totalPoints, email: email, token: token)
                 user.team = team
-                self.currentUserTeam = team
                 return user
             }
         }
     }
     func fetchTeamData(){
-        print(currentUser?.team ?? "Not Found")
-        if (currentUserTeam == ""){
-            print("nil")
-        }else{
-            print(currentUserTeam )
-        }
-        
         db.collection("User").whereField("team", isEqualTo: currentUserTeam).addSnapshotListener{ (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
                 return
@@ -109,11 +102,13 @@ class UserViewModel: ObservableObject{
                 print("Document does not exist")
             }
         }
-//            var user = User(firstName: firstName, lastName: lastName, displayName: displayName, totalPoints: totalPoints)
     }
     
-    func getUser(userId: String){
+    func getUser(userId: String) -> User {
         let getUser = db.collection("User").document(userId )
+        var user = User(id: "id", firstName: "firstName",
+                        lastName: "lastName", displayName: "displayName", totalPoints:
+                            0, email: "email", token: "token")
         getUser.getDocument { (document, error) in
             if let document = document, document.exists {
                 let id = document.get("id") as? String ?? ""
@@ -124,15 +119,17 @@ class UserViewModel: ObservableObject{
                 let totalPoints = document.get("totalPoints") as? Int ?? 0
                 let email = document.get("email") as? String ?? ""
                 let token = document.get("token") as? String ?? ""
-                var user = User(id: id, firstName: firstName,
+                user = User(id: id, firstName: firstName,
                                 lastName: lastName, displayName: displayName, totalPoints:
                                     totalPoints, email: email, token: token)
                 user.team = team
-                self.currentUser = user
+                self.taskUser = user
+                
             } else {
                 print("Document does not exist")
             }
         }
+        return user
     }
     
     func getUserFromEmail(email: String){

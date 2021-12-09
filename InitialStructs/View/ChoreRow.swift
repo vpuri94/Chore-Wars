@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ChoreRow: View {
     @State var task : Task
+    var count:Int
     @State var taskViewModel = TaskViewModel()
 //    @State var user = UserViewModel()
     @State private var checked = true
