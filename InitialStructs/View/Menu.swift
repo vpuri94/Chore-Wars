@@ -107,7 +107,6 @@ struct Menu: View {
     }
     
     func resetTeam(){
-        /*
         var functions = Functions.functions()
         var team = AuthViewModel.currentTeam
         functions.httpsCallable("resetNotify").call(["team": team?.joinCode, "winner": team?.lastRoundWinner, "loser": team?.lastRoundLoser, "prize":team?.currentReward, "punishment": team?.currentPunishment]){result, error in
@@ -163,7 +162,7 @@ struct Menu: View {
                 }
                 
         }
- */
+
         setLastWinnerLoser()
         resetUserScore()
     }
