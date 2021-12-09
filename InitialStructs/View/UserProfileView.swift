@@ -20,7 +20,6 @@ struct UserProfileView: View {
         .onAppear(perform: {
             self.user.getAllTasksForCurrentUser()
         })
-        .navigationBarTitle("User Profile", displayMode: .inline)
 
     }
     }

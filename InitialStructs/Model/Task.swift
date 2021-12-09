@@ -48,10 +48,10 @@ struct Task: Identifiable{
     }
     
     func getDate()-> String {
-        print(dueDate)
+//        print(dueDate)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
-        print(dateFormatter.string(from: dueDate))
+//        print(dateFormatter.string(from: dueDate))
         return (dateFormatter.string(from: dueDate))
     }
     

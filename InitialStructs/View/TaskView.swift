@@ -11,8 +11,9 @@ import SwiftUI
 
 struct TaskView: View {
     @ObservedObject  var user: UserViewModel
-    @State private var selection: String? = "A"
+//    @State private var selection: String? = "A"
     @ObservedObject private var taskViewModel = TaskViewModel()
+    @State var check = true
     
     var width  = UIScreen.main.bounds.width
     var body: some View {
@@ -50,14 +51,35 @@ struct TaskView: View {
                         }
                     }
                     HStack(alignment: .center, spacing: 20){
-                        Text(" Claimed ")
                         Text(" Unclaimed ")
+                            .foregroundColor(check ? Color.blue: Color.black)
+                            .underline(color: check ? Color.blue: Color.lighterGray)
+                            .onTapGesture {
+                            check = true
+                        }
+                        Text(" Claimed ")
+                            .foregroundColor(check ? Color.black: Color.blue)
+                            .underline(color: check ? Color.lighterGray: Color.blue)
+                            
+                            .onTapGesture {
+                            check = false
+                        }
                     }
                     //MARK: Task section.
                         VStack{
                             List(taskViewModel.tasks,id: \.id){ task in
-                                TaskRow(task: task, user: user)
-                                
+                                if(task.team == user.currentUserTeam){
+                                    if(task.claimed != "" && check == false){
+                                        TaskRow(task: task, user: user)
+                                            .cornerRadius(10)
+                                            .shadow(color: Color.black.opacity(0.2), radius: 2, x: 0, y: 2)
+                                    }
+                                    if(check == true && task.claimed == ""){
+                                        TaskRow(task: task, user: user)
+                                            .cornerRadius(10)
+                                            .shadow(color: Color.black.opacity(0.2), radius: 2, x: 0, y: 2)
+                                    }
+                                }
                             }
                         }
                     }
@@ -67,19 +89,6 @@ struct TaskView: View {
                         self.taskViewModel.fetchData()
                         
                 }
-                
             }
-        
     }
-    
 }
-    
-    
-    
-
-//
-//struct TaskView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TaskView()
-//    }
-//}

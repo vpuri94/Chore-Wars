@@ -12,6 +12,7 @@ struct DashboardView: View {
     @ObservedObject var tasks = TaskViewModel()
 //    @ObeservedObject private var id = user.currentUserID
     @State var showNewView = false
+    @State var count = 1
 //    var currentUserTasks: [Task] = user.currentUserTasks
 
     var body: some View {
@@ -32,8 +33,9 @@ struct DashboardView: View {
                         .padding(.top, 30)
                         .padding(.leading, 30)
                     
-                    List(self.user.currentUserTasks, id: \.id) {eachTask in
-                        ChoreRow(task: eachTask)
+                    List(self.user.currentUserTasks, id: \.id) { eachTask in
+                        ChoreRow(task: eachTask, count: count)
+                    
                     }
                 } .padding(.top, 20)
                 
