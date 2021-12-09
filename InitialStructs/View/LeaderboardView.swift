@@ -13,6 +13,7 @@ struct LeaderboardView: View {
 @State private var selection: String? = "A"
 //@ObservedObject private var taskViewModel = TaskViewModel()
 @ObservedObject private var userViewModel = UserViewModel()
+    @Binding var tabSelection: Int
 
 var width  = UIScreen.main.bounds.width
 @State var rank: Int = 1
@@ -40,8 +41,8 @@ var body: some View {
     }
 }
 
-struct LeaderboardView_Previews: PreviewProvider {
-    static var previews: some View {
-        LeaderboardView()
-    }
-}
+//struct LeaderboardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LeaderboardView()
+//    }
+//}

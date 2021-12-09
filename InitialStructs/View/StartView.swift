@@ -16,6 +16,9 @@ struct StartView: View {
         NavigationView{
             VStack(spacing: 30){
                 Spacer().frame( height: 100, alignment: .leading)
+                Image("logo")
+                    .scaledToFit()
+                    .frame(width:200, height:200, alignment:.center)
                 Text("Chore Wars")
                     .frame(width: width, alignment: .center)
                     .font(.custom("Montserrat-Bold",size: 40))

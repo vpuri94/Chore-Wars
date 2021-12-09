@@ -38,6 +38,7 @@
 		F6663C992721D206003427B9 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6663C982721D206003427B9 /* Team.swift */; };
 		F6663C9B2721D277003427B9 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6663C9A2721D277003427B9 /* UserViewModel.swift */; };
 		F67BB30127574DD300843DCB /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67BB30027574DD300843DCB /* StartView.swift */; };
+		F695D9E6276296F900001510 /* ToDoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F695D9E5276296F900001510 /* ToDoRow.swift */; };
 		F6D7200F275371F40059E714 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D7200E275371F40059E714 /* SignUp.swift */; };
 		F6D72011275376E90059E714 /* SignUpView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D72010275376E90059E714 /* SignUpView2.swift */; };
 		F6D720152754A3A40059E714 /* CreateTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D720142754A3A40059E714 /* CreateTeamView.swift */; };
@@ -127,6 +128,7 @@
 		F6663C982721D206003427B9 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		F6663C9A2721D277003427B9 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		F67BB30027574DD300843DCB /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		F695D9E5276296F900001510 /* ToDoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoRow.swift; sourceTree = "<group>"; };
 		F6D7200E275371F40059E714 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		F6D72010275376E90059E714 /* SignUpView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView2.swift; sourceTree = "<group>"; };
 		F6D720142754A3A40059E714 /* CreateTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTeamView.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 				F6663C9627212EC2003427B9 /* AddNewChoreView.swift */,
 				F6FC0A0B2730C34A0046E3C8 /* TaskRow.swift */,
 				5B53400827588E8600C5CB75 /* DashboardView.swift */,
+				F695D9E5276296F900001510 /* ToDoRow.swift */,
 				F618C9EC274D431900350695 /* LogInView.swift */,
 				F6D7200E275371F40059E714 /* SignUp.swift */,
 				F6D72010275376E90059E714 /* SignUpView2.swift */,
@@ -651,6 +654,7 @@
 				F6663C992721D206003427B9 /* Team.swift in Sources */,
 				5B53400927588E8600C5CB75 /* DashboardView.swift in Sources */,
 				F6092F9327358E7C000A39D0 /* CheckBoxView.swift in Sources */,
+				F695D9E6276296F900001510 /* ToDoRow.swift in Sources */,
 				F6092F9427358E7C000A39D0 /* ChoreRow.swift in Sources */,
 				F6D720152754A3A40059E714 /* CreateTeamView.swift in Sources */,
 				F6EB0052275ABE0C00A5207C /* CompleteChoreRow.swift in Sources */,
