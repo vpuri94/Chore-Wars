@@ -57,8 +57,10 @@ struct TabViews: View{
                 }
             .tag(2)
             AddNewChoreView(user: user).tabItem{
-                    Image("add-icon")
-                        .frame(minWidth: 30, minHeight: 100)
+                NavigationLink(destination:AddNewChoreView(user: user)){
+                        Image("add-icon")
+                            .frame(minWidth: 30, minHeight: 100)
+                    }
                 }
             TaskView(user:user).tabItem{
                     Image("chores-icon")
