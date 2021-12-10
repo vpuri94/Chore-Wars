@@ -26,9 +26,9 @@ struct AddNewChoreView: View {
         NavigationView{
             VStack{
                 VStack{
-                    Text("Chore Name").font(.title).frame(width: width-50,alignment: .leading).foregroundColor(.gray)
+                    Text("Chore Name").font(.title2).frame(width: width-50,alignment: .leading).foregroundColor(.gray)
                     TextField("Name",text: $name)
-                        .font(.custom("Montserrat",size: 10))
+                        .font(.custom("Montserrat",size: 20))
                         .foregroundColor(.blue)
                                 .frame(width: width-50)
                     Divider()
@@ -40,9 +40,9 @@ struct AddNewChoreView: View {
                 
                     
                 VStack{
-                    Text("Possible Points Earned").font(.headline).frame(width: width-50,alignment: .leading).foregroundColor(.gray)
+                    Text("Possible Points Earned").font(.title2).frame(width: width-50,alignment: .leading).foregroundColor(.gray)
                     TextField("Points",text: $points)
-                        .font(.custom("Montserrat", size: 10))
+                        .font(.custom("Montserrat", size: 20))
                         .foregroundColor(.blue)
                         .frame(width: width-50)
                 }

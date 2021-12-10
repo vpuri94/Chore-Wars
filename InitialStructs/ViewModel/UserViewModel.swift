@@ -22,9 +22,12 @@ class UserViewModel: ObservableObject{
     @Published var incompleteTasksForCurrentUser = [Task]()
     @Published var currentUserID = ""
     @Published var currentUserEmail = ""
+    @Published var currentUserPoints = 0
     @Published var currentUserTeam = ""
     @Published var signedIn = false
     @Published var taskUser: User? = nil
+    @Published var currentPunishment: String = ""
+    @Published var currentReward: String = ""
 
     
     
@@ -98,6 +101,7 @@ class UserViewModel: ObservableObject{
                 var totalPoints = document.get("totalPoints")
                 totalPoints = totalPoints as! Int + points
                 self.db.collection("User").document(userId).updateData(["totalPoints": totalPoints ?? 0])
+                self.currentUserPoints = totalPoints as! Int
             } else {
                 print("Document does not exist")
             }
@@ -139,8 +143,6 @@ class UserViewModel: ObservableObject{
                     print("Error getting documents: \(err)")
                 } else {
                     for document in querySnapshot!.documents {
-                        print("here")
-                        print("\(document.documentID) => \(document.data())")
                         let id  = document["id"] as? String ?? ""
                         let displayName = document["displayName"] as? String ?? ""
                         let firstName = document["firstName"] as? String ?? ""
@@ -155,7 +157,7 @@ class UserViewModel: ObservableObject{
                         self.currentUserEmail = email
                         self.currentUserID = id
                         self.currentUserTeam  = team
-                        print("here")
+                        self.currentUserPoints = totalPoints as! Int
                     }
                 }
         }
@@ -213,7 +215,7 @@ class UserViewModel: ObservableObject{
     
     func getTeamFromUser(){
         AuthViewModel.currentTeam = Team()
-        db.collection("Team").whereField("team", isEqualTo: currentUserTeam )
+        db.collection("Team").whereField("code", isEqualTo: currentUserTeam )
             .getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
@@ -223,12 +225,37 @@ class UserViewModel: ObservableObject{
                         AuthViewModel.currentTeam?.id  = document["id"] as? String ?? ""
                         AuthViewModel.currentTeam?.teamName = document["name"] as? String ?? ""
                         AuthViewModel.currentTeam?.joinCode = document["code"] as? String ?? ""
-                        AuthViewModel.currentTeam?.currentReward = document["crntReward"] as? String ?? ""
-                        AuthViewModel.currentTeam?.currentPunishment = document["crntPunishment"] as? String ?? ""
+                        AuthViewModel.currentTeam?.currentReward = document["currentReward"] as? String ?? ""
+                        AuthViewModel.currentTeam?.currentPunishment = document["currentPunishment"] as? String ?? ""
                         AuthViewModel.currentTeam?.lastRoundWinner = document["lastRoundWinner"] as? String ?? ""
                         AuthViewModel.currentTeam?.lastRoundLoser = document["lastRoundLooser"] as? String ?? ""
+                        self.currentReward = document["currentReward"] as? String ?? ""
+                        self.currentPunishment = document["currentPunishment"] as? String ?? ""
                     }
                 }
+        }
+    }
+    
+    func updateDisplayName(displayName:String){
+        let user = db.collection("User").document(currentUserID)
+        user.getDocument { (document, error) in
+            if let document = document, document.exists {
+                self.db.collection("User").document(self.currentUserID).updateData(["displayName": displayName ])
+            } else {
+                print("Document does not exist")
+            }
+        }
+    }
+    
+    func updateTeam(teamCode:String){
+        let user = db.collection("User").document(currentUserID)
+        user.getDocument { (document, error) in
+            if let document = document, document.exists {
+                self.db.collection("User").document(self.currentUserID).updateData(["team": teamCode])
+                self.currentUserTeam = teamCode
+            } else {
+                print("Document does not exist")
+            }
         }
     }
     

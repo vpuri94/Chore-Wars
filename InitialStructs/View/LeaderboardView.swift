@@ -7,9 +7,10 @@
 
 import Foundation
 import SwiftUI
+import Firebase
 
 struct LeaderboardView: View {
-
+    var db = Firestore.firestore()
     @State private var selection: String? = "A"
     @ObservedObject  var user: UserViewModel
     @Binding var tabSelection: Int
@@ -17,12 +18,11 @@ struct LeaderboardView: View {
     let image = Image("profile")
     let prize = Image("prize")
     let punishment = Image("punishment")
+//    @State var currentReward = AuthViewModel.currentTeam?.currentReward
+//    @State var currentPunishment = AuthViewModel.currentTeam?.currentPunishment
 
     var body: some View {
-        
            NavigationView {
-    //           Color.lighterGray
-               
                VStack(alignment: .leading){
                    HStack{
                        Spacer()
@@ -41,12 +41,11 @@ struct LeaderboardView: View {
                                Text("Prize")
                                    .font(.system(size: 18))
                                    .foregroundColor(Color.gray)
-                               Text("Order everyone around for a week")
+                               Text(user.currentReward)
                                    .font(.system(size: 14))
                                     .font(Font.body.bold())
                                     .lineLimit(nil)
                            }
-//                           .frame( height:65 )
                            Spacer()
                            
                        }.frame(width: width-50, height: 65)
@@ -54,20 +53,18 @@ struct LeaderboardView: View {
                            .background(Color.white)
                            .cornerRadius(10)
                            .shadow(color: Color.black.opacity(0.2), radius: 3, x: 0,y:1)
-
                        HStack{
                            punishment.resizable()
                                .frame(width: 42,height: 42)
                                .clipShape(Circle()).padding(.horizontal)
-                           VStack(alignment: .leading, spacing: 10){
+                           VStack(alignment: .leading, spacing: 5){
                                Text("Punishment")
                                    .font(.system(size: 18))
                                    .foregroundColor(Color.gray)
-                               Text("Wash everyone's dishes for a week")
+                               Text(AuthViewModel.currentTeam?.currentPunishment ?? "No Data found")
                                    .font(.system(size: 14))
                                    .lineLimit(nil)
                            }
-//                           .frame( height:65 )
                            Spacer()
                            Spacer()
                            
@@ -88,13 +85,37 @@ struct LeaderboardView: View {
                .navigationBarTitle("Leaderboard").font(.custom("Montserrat", size: 20))
                .navigationBarTitleDisplayMode(.inline)
                .onAppear(){
-                      self.user.fetchData()
-
+                   self.user.getTeamFromUser()
+                   self.user.fetchData()
               }
                .background(Color.lighterGray)
            }
         }
-}
+//
+//    func rewardPunishment(){
+//        print("inside")
+//        db.collection("team").whereField("code", isEqualTo:user.currentUserTeam)
+//            .getDocuments() { (querySnapshot, err) in
+//                print("another inside")
+//                if let err = err {
+//                    print("Error getting documents: \(err)")
+//                } else {
+//                    print("hello")
+//                    print(user.currentUserTeam)
+//                    querySnapshot.
+//                    for document in querySnapshot!.documents {
+////                        print("\(document.documentID) => \(document.data())")
+//                        AuthViewModel.currentReward  = document["currentReward"] as? String ?? "No data found"
+//                        AuthViewModel.currentPunishment  = document["currentPunishment"] as? String ?? "No data found"
+//                        print("here inside")
+//                        print(AuthViewModel.currentReward)
+//                        print(AuthViewModel.currentPunishment)
+//                    }
+//                }
+//            }
+//        }
+    }
+
 
 struct Ranking: View{
     @State var rank = 1
@@ -123,6 +144,7 @@ struct Ranking: View{
                                 .font(.system(size: 20))
                                 .foregroundColor(Color.black)
                             Text(String(eachUser.totalPoints))
+//                            Text(String(eachUser.team))
                         }
                         Spacer()
                     
@@ -157,4 +179,5 @@ struct Ranking: View{
             }
         }.background(Color.lighterGray)
     }
+    
 }

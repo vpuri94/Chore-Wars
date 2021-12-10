@@ -18,13 +18,12 @@ struct ToDoRow: View {
     }
     
     var body: some View {
-        let image = Image("outdoor")
+//        let image = Image("outdoor")
         Button(action: complete){
             HStack {
-                Spacer()
                 Image(String(task.category.lowercased()))
-                    .padding()
-                Spacer()
+                    .padding(.horizontal)
+            
                 VStack (alignment:.leading, spacing: 2){
                     Text(task.name)
                         .font(.custom("Montserrat-SemiBold",size: 18))
@@ -36,14 +35,13 @@ struct ToDoRow: View {
                     Text("Complete")
                         .font(.custom("Montserrat-Bold",size: 11))
                         .foregroundColor(Color(UIColor.turquoise))
-                    Image(systemName: task.completed ? "check-square": "empty-square")
+                    Image(task.completed ? "check-square": "empty-square")
                         .scaledToFit()
                         .frame(width: 46, height: 46)
                     Text("\(task.points) pts")
                         .font(.custom("Montserrat-Regular",size: 15))
                         .foregroundColor(Color(UIColor.turquoise))
-                }
-                Spacer()
+                }.padding(.horizontal)
             }
         }
         

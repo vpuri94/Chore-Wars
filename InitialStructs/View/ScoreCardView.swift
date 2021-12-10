@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct ScoreCardView: View {
-//    @State var currentUser: User
-    
     @ObservedObject var user: UserViewModel
     @ObservedObject private var tasks = TaskViewModel()
 //    var currentUser = UserViewModel().currentUser
@@ -35,7 +33,7 @@ struct ScoreCardView: View {
                     Text(user.currentUser?.displayName ?? "Null")
                         .font(.custom("Montserrat-Bold",size: 22))
                         .foregroundColor(Color(UIColor.black))
-                    Text(String(user.currentUser?.totalPoints ?? 0))
+                    Text(String(user.currentUserPoints))
                         .font(.custom("Montserrat-Regular",size: 18))
                         .foregroundColor(Color(UIColor.black))
                 }

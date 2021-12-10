@@ -15,7 +15,11 @@ struct TaskRow: View{
     var body: some View{
         HStack{
             HStack (alignment:.center) {
+                Image(String(task.category.lowercased()))
+                    .padding(.horizontal)
+ 
                 VStack (alignment:.leading){
+                    
                     Text(task.name)
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     Spacer()

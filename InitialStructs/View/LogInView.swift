@@ -22,10 +22,7 @@ struct LogInView: View {
         
         
         let width  = UIScreen.main.bounds.width
-        
-        
-        
-        NavigationView{
+    
             VStack(spacing: 20){
                 Spacer()
             
@@ -101,7 +98,6 @@ struct LogInView: View {
                 Spacer()
                     
             }.navigationBarTitle("LogIn", displayMode: .inline)
-    }
     }
 }
 

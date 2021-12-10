@@ -16,6 +16,8 @@ class AuthViewModel {
 
     static var currentTeam: Team? = nil
     static var teamCode: String? = ""
+    static var currentReward: String = ""
+    static var currentPunishment: String = ""
 
     
 }

@@ -50,7 +50,7 @@ struct TabViews: View{
                     .frame(minWidth: 30, minHeight: 100)
                 }
             .tag(1)
-            LeaderboardView(tabSelection: $tabSelection).tabItem{
+            LeaderboardView(user:user, tabSelection: $tabSelection).tabItem{
                     Image("leaderboard-icon")
                     .renderingMode(.template)
                         .frame(minWidth: 30, minHeight: 100)
@@ -58,7 +58,6 @@ struct TabViews: View{
             .tag(2)
             AddNewChoreView(user: user).tabItem{
                     Image("add-icon")
-                   
                         .frame(minWidth: 30, minHeight: 100)
                 }
             TaskView(user:user).tabItem{
@@ -66,10 +65,11 @@ struct TabViews: View{
                     .renderingMode(.template)
                         .frame(minWidth: 30, minHeight: 100)
                 }
-            TaskView(user:user).tabItem{
-                    Image("reviews-icon")
-                    .renderingMode(.template)
-                        .frame(minWidth: 30, minHeight: 50)
+            UserAccount(user:user).tabItem{
+                    Image(systemName: "person")
+//                    .renderingMode(.template)
+                    .resizable()
+
                 }
                 
             }

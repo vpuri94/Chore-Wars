@@ -18,11 +18,11 @@ struct Menu: View {
     @ObservedObject  var user: UserViewModel
     @State var tag = 0
     var body: some View {
-            NavigationView {
+
                 if (tag == 1){
                     UserProfileView(user:user)
                 }else{
-                    VStack{
+                    VStack(alignment: .leading){
                         Button(action: {
                             tag = 1
                         }) {
@@ -36,21 +36,6 @@ struct Menu: View {
                             .padding()
                             .foregroundColor(.white)
                             .background(Color.green)
-                            .cornerRadius(40)
-                        }
-                        Button(action: {
-                            print("Settings tapped!")
-                        }) {
-                            HStack {
-                                Image(systemName: "gearshape")
-                                    .font(.title)
-                                Text("Team Settings")
-                                    .fontWeight(.semibold)
-                                    .font(.title)
-                            }
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(Color.gray)
                             .cornerRadius(40)
                         }
                         Button(action: {
@@ -73,8 +58,6 @@ struct Menu: View {
                 .navigationBarTitleDisplayMode(.inline)
                  .onAppear(){
                         self.taskViewModel.fetchData()
-                        
-                }
                 }
                 
             }
@@ -242,6 +225,7 @@ struct Menu: View {
                     }
                     
                 }
+                
         }
     }
     
