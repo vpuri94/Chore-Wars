@@ -36,7 +36,7 @@ struct ToDoRow: View {
                     Text("Complete")
                         .font(.custom("Montserrat-Bold",size: 11))
                         .foregroundColor(Color(UIColor.turquoise))
-                    Image(systemName: task.completed ? "check-square": "empty-square")
+                    Image(task.completed ? "check-square": "empty-square")
                         .scaledToFit()
                         .frame(width: 46, height: 46)
                     Text("\(task.points) pts")

@@ -11,8 +11,9 @@ import SwiftUI
 
 
 struct AddNewChoreView: View {
-
+    
     let taskViewModel = TaskViewModel()
+    @Environment(\.presentationMode) var presentationMode
     @State private var name: String = ""
     @State private var points: String = ""
     @State private var dueDate = Date()
@@ -24,83 +25,130 @@ struct AddNewChoreView: View {
     @State var cat = ""
     var body: some View {
         NavigationView{
-            VStack{
+            ScrollView(.vertical) {
                 VStack{
-                    Text("Chore Name").font(.title).frame(width: width-50,alignment: .leading).foregroundColor(.gray)
-                    TextField("Name",text: $name)
-                        .font(.custom("Montserrat",size: 10))
-                        .foregroundColor(.blue)
-                                .frame(width: width-50)
-                    Divider()
-                     .frame(height: 1)
-                     .padding(.horizontal, 10)
-                     .background(Color.gray)
-                }
-//                .frame(width: width, height: 100, alignment: .topLeading)
-                
-                    
-                VStack{
-                    Text("Possible Points Earned").font(.headline).frame(width: width-50,alignment: .leading).foregroundColor(.gray)
-                    TextField("Points",text: $points)
-                        .font(.custom("Montserrat", size: 10))
-                        .foregroundColor(.blue)
-                        .frame(width: width-50)
-                }
-                Divider()
-                    HStack{
-                        Text("Start")
-                        DatePicker("", selection: $startDate, in: Date()..., displayedComponents: .date).padding()
+                    VStack{
+                        Text("Chore Name")
+                            .font(.custom("Montserrat-Bold",size: 20))
+                            .foregroundColor(.gray)
+                            .frame(width: width-50,alignment: .leading)
+                        TextField("Enter Name",text: $name)
+                            .font(.custom("Montserrat-SemiBold",size: 25))
+                            .foregroundColor(.black)
+                            .frame(width: width-50)
+                        Divider()
+                            .frame(width: width-50, height: 2)
+                            .padding(.horizontal, 10)
+                    }.padding()
+                    Spacer()
+                    Spacer()
+                    VStack{
+                        Text("Possible Points Earned")
+                            .font(.custom("Montserrat-Bold",size: 20))
+                            .foregroundColor(.gray)
+                            .frame(width: width-50,alignment: .leading)
+                        TextField("Enter Points",text: $points)
+                            .font(.custom("Montserrat-SemiBold",size: 25))
+                            .foregroundColor(.black)
+                            .frame(width: width-50)
+                        Divider()
+                            .frame(width: width-50,height: 2)
+                            .padding(.horizontal, 10)
                     }
-                    HStack{
-                        Text("Due Date")
-                        DatePicker("", selection: $dueDate, in: Date()..., displayedComponents: .date).padding()
-                    }
-
-                ForEach(categories, id:\.self){ category in
+                    VStack {
+                        HStack{
+                            Text("Start Date")
+                                .font(.custom("Montserrat-Bold",size: 20))
+                                .foregroundColor(.gray)
+                                
+                            DatePicker("", selection: $startDate, in: Date()..., displayedComponents: .date).padding()
+                        }
+                        HStack{
+                            Text("Due Date")
+                                .font(.custom("Montserrat-Bold",size: 20))
+                                .foregroundColor(.gray)
+                               
+                            DatePicker("", selection: $dueDate, in: Date()..., displayedComponents: .date).padding()
+                        }
+                    }.frame(width:width-50)
+                    VStack (spacing: 1){
+                        Spacer()
+                        Text("Category")
+                            .font(.custom("Montserrat-Bold",size: 20))
+                            .foregroundColor(.gray)
+                            .frame(width: width-50,alignment: .leading)
+                        ForEach(categories, id:\.self){ category in
                             Button(action:{
                                 cat = category
-                            }, label: {
-                                Text(category)
-                                    .frame(width:width-100)
-                                    .padding()
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(lineWidth: 2)
-                                    )
-                                }
-                            )
+                            }){
+                                HStack {
+                                    Image("\(category.lowercased())")
+                                        .padding()
+                                    Text(category)
+                                      //  .frame(width:width-100)
+                                        .padding()
+                                        .font(.custom("Montserrat-Medium",size: 20))
+                                        .foregroundColor(.black)
+                                }.frame(width: width-50)
+                            }
+                            .buttonStyle(FilledButton())
                         }
-                    Button( action:{
-                        cat = "String"
-                    },label:{
-                        Text("Add New Category")
-                            .frame(width:width-100)
-                            .padding()
-                            .background(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(lineWidth: 2)
-                            )
-                    }).disabled(true)
-               
+                        .frame(width:width-50)
+                        Button( action:{
+                            cat = "String"
+                        },label:{
+                            Text("Add New Category")
+                                .frame(width:width-100)
+                                .padding()
+                                .font(.custom("Montserrat-Medium",size: 20))
+                                .foregroundColor(.black)
+                        }).disabled(true)
+                            .buttonStyle(FilledButton())
+                    }
+                    
                     Button(action:{
                         self.taskViewModel.addData(name: name,points: points,dueDate: dueDate, category: cat, teamName: user.currentUserTeam)
                     }, label:{
                         Text("Add Chore")
+                            .font(.custom("Montserrat-SemiBold",size: 25))
                             .padding()
-                            .background(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(lineWidth: 2)
-                                    .background(Color.blue)
-                            )
-                            .foregroundColor(Color.white)
-                            
-                        }
-                    ).padding()
+                            .foregroundColor(Color(UIColor.systemBackground))
+                        
+                    }
+                    )
+                    .background(Color(UIColor.turquoise))
+                    .clipShape(RoundedRectangle(cornerRadius:10))
                 }
-            .padding()
-            .navigationTitle("Add New Chore")
-            .navigationBarTitleDisplayMode(.inline)
-            Spacer()
+                .padding()
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button("Cancel"){
+                            presentationMode.wrappedValue.dismiss()
+                        }
+                    }
+                    ToolbarItem(placement: .principal) {
+                        HStack {
+                            Text("Add New Chore")
+                                .font(.custom("Montserrat-Regular",size: 22))
+                        }
+                    }
+                }
+                .navigationBarTitleDisplayMode(.inline)
+                Spacer()
+            }
+        }
+    }
+    
+    struct FilledButton: ButtonStyle {
+        @Environment(\.isEnabled) private var isEnabled
+        
+        func makeBody(configuration: Configuration) -> some View {
+            configuration
+                .label
+                .background(configuration.isPressed ? Color(UIColor.turquoise) : Color(UIColor.systemBackground))
+                .padding()
+                .clipShape(RoundedRectangle(cornerRadius:10))
+                .shadow(radius:3)
         }
     }
 }

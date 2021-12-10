@@ -50,16 +50,17 @@ struct TabViews: View{
                     .frame(minWidth: 30, minHeight: 100)
                 }
             .tag(1)
-            LeaderboardView(tabSelection: $tabSelection).tabItem{
+            LeaderboardView(user:user, tabSelection: $tabSelection).tabItem{
                     Image("leaderboard-icon")
                     .renderingMode(.template)
                         .frame(minWidth: 30, minHeight: 100)
                 }
             .tag(2)
             AddNewChoreView(user: user).tabItem{
-                    Image("add-icon")
-                   
-                        .frame(minWidth: 30, minHeight: 100)
+                NavigationLink(destination:AddNewChoreView(user: user)){
+                        Image("add-icon")
+                            .frame(minWidth: 30, minHeight: 100)
+                    }
                 }
             TaskView(user:user).tabItem{
                     Image("chores-icon")
